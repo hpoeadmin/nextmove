@@ -1,0 +1,2340 @@
+[
+ {
+  "nr": "52004",
+  "w": "Abdichterin EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Abdichter EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Caulker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52010",
+  "w": "Abdichtungspraktikerin EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Abdichtungspraktiker EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Caulking Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "15019",
+  "w": "Agrarpraktikerin EBA (ab Lehrbeginn 2027)",
+  "m": "Agrarpraktiker EBA",
+  "fr": [
+   "Landwirtschaft",
+   "Spezialkulturen"
+  ],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "44704",
+  "w": "Anlagenführerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Anlagenführer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Machine Operator, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "44703",
+  "w": "Anlagen- und Apparatebauerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Anlagen- und Apparatebauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "40105",
+  "w": "Apparateglasbläserin EFZ",
+  "m": "Apparateglasbläser EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Scientific Glassblower, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54603",
+  "w": "Architekturmodellbauerin EFZ",
+  "m": "Architekturmodellbauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Architectural Modeler, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "86913",
+  "w": "Assistentin Gesundheit und Soziales EBA",
+  "m": "Assistent Gesundheit und Soziales EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0923 Sozialarbeit und Beratung",
+  "en": "Health and Social Care Worker, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "85506",
+  "w": "Augenoptikerin EFZ (ab Lehrbeginn 2022)",
+  "m": "Augenoptiker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "47422",
+  "w": "Automatikerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Automatiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "46427",
+  "w": "Automatikmonteurin EFZ (ab Lehrbeginn 2026)",
+  "m": "Automatikmonteur EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "46318",
+  "w": "Automobil-Assistentin EBA (ab Lehrbeginn 2018)",
+  "m": "Automobil-Assistent EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Automotive Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "46324",
+  "w": "Automobil-Fachfrau EFZ (ab Lehrbeginn 2018)",
+  "m": "Automobil-Fachmann EFZ",
+  "fr": [
+   "Personenwagen",
+   "Nutzfahrzeuge"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Automotive Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "46321",
+  "w": "Automobil-Mechatronikerin EFZ (ab Lehrbeginn 2018)",
+  "m": "Automobil-Mechatroniker EFZ",
+  "fr": [
+   "Personenwagen",
+   "Nutzfahrzeuge"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Automotive Mechatronics Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "21107",
+  "w": "Bäckerin-Konditorin-Confiseurin EBA",
+  "m": "Bäcker-Konditor-Confiseur EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0721 Nahrungsmittel",
+  "en": "Baker-Patissier-Confectioner, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "21104",
+  "w": "Bäckerin-Konditorin-Confiseurin EFZ",
+  "m": "Bäcker-Konditor-Confiseur EFZ",
+  "fr": [
+   "Bäckerei-Konditorei",
+   "Konditorei-Confiserie"
+  ],
+  "dauer": 3,
+  "isced": "0721 Nahrungsmittel",
+  "en": "Baker-Patissier-Confectioner, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "43906",
+  "w": "Baumaschinenmechanikerin EFZ",
+  "m": "Baumaschinenmechaniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": null
+ },
+ {
+  "nr": "51005",
+  "w": "Bauwerktrennerin EFZ",
+  "m": "Bauwerktrenner EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Construction Cutter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "27121",
+  "w": "Bekleidungsgestalterin EFZ",
+  "m": "Bekleidungsgestalter EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Clothing Designer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "27122",
+  "w": "Bekleidungsnäherin EBA",
+  "m": "Bekleidungsnäher EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Garment Sewer, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "39905",
+  "w": "Betonwerkerin EFZ",
+  "m": "Betonwerker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Concrete Worker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "35317",
+  "w": "Bindetechnologin EFZ",
+  "m": "Bindetechnologe EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Print Binding Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54215",
+  "w": "Blasinstrumentenbauerin EFZ (Berufsfeld Musikinstrumentenbau)",
+  "m": "Blasinstrumentenbauer EFZ (Berufsfeld Musikinstrumentenbau)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Wind Instrument Maker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51706",
+  "w": "Boden-Parkettlegerin EFZ",
+  "m": "Boden-Parkettleger EFZ",
+  "fr": [
+   "textile und elastische Beläge",
+   "Parkett"
+  ],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": null
+ },
+ {
+  "nr": "30405",
+  "w": "Bootbauerin EFZ",
+  "m": "Bootbauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": "Boat Builder, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30404",
+  "w": "Bootfachwartin EFZ",
+  "m": "Bootfachwart EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": "Boat Maintenance Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "21419",
+  "w": "Brau- und Getränketechnologin EFZ (Berufsfeld Lebensmitteltechnologie) (ab Lehrbeginn 2025)",
+  "m": "Brau- und Getränketechnologe EFZ (Berufsfeld Lebensmitteltechnologie)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "70513",
+  "w": "Buchhändlerin EFZ (ab Lehrbeginn 2027)",
+  "m": "Buchhändler EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "43102",
+  "w": "Büchsenmacherin EFZ",
+  "m": "Büchsenmacher EFZ",
+  "fr": [
+   "Profil G",
+   "Profil E"
+  ],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Gunsmith, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "90904",
+  "w": "Bühnentänzerin EFZ (ab Lehrbeginn 2021)",
+  "m": "Bühnentänzer EFZ",
+  "fr": [
+   "Klassischer Tanz",
+   "Zeitgenössischer Tanz",
+   "Musical"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "45307",
+  "w": "Carrosserielackiererin EFZ (ab Lehrbeginn 2018)",
+  "m": "Carrosserielackierer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Automotive Painter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "45308",
+  "w": "Carrosseriereparateurin EFZ",
+  "m": "Carrosseriereparateur EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Automotive Body Repairer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "45306",
+  "w": "Carrosseriespenglerin EFZ (ab Lehrbeginn 2018)",
+  "m": "Carrosseriespengler EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Automotive Body Repairer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "37006",
+  "w": "Chemie- und Pharmapraktikerin EBA",
+  "m": "Chemie- und Pharmapraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Chemical and Pharmaceutical Assistant,Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "37007",
+  "w": "Chemie- und Pharmatechnologin EFZ (ab Lehrbeginn 2027)",
+  "m": "Chemie- und Pharmatechnologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "82015",
+  "w": "Coiffeuse EBA (ab Lehrbeginn 2024)",
+  "m": "Coiffeur EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "82016",
+  "w": "Coiffeuse EFZ (ab Lehrbeginn 2024)",
+  "m": "Coiffeur EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52005",
+  "w": "Dachdeckerin EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Dachdecker EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Roofer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52011",
+  "w": "Dachdeckerpraktikerin EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Dachdeckerpraktiker EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Roofing Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "86916",
+  "w": "Dentalassistentin EFZ (ab Lehrbeginn 2020)",
+  "m": "Dentalassistent EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Dental Assistant, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "71800",
+  "w": "Detailhandelsassistentin EBA (ab Lehrbeginn 2022)",
+  "m": "Detailhandelsassistent EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Retail Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "71900",
+  "w": "Detailhandelsfachfrau EFZ (ab Lehrbeginn 2022)",
+  "m": "Detailhandelsfachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Retail Professional, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "70604",
+  "w": "Drogistin EFZ",
+  "m": "Drogist EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0416 Gross- und Einzelhandel",
+  "en": null
+ },
+ {
+  "nr": "35318",
+  "w": "Druckausrüsterin EFZ",
+  "m": "Druckausrüster EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Printing Finisher, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "50009",
+  "w": "Edelsteinfasserin EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "m": "Edelsteinfasser EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "47423",
+  "w": "Elektroinstallateurin EFZ (ab Lehrbeginn 2026)",
+  "m": "Elektroinstallateur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "46506",
+  "w": "Elektronikerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Elektroniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "64506",
+  "w": "Elektroplanerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Elektroplaner EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52505",
+  "w": "Entwässerungspraktikerin EBA",
+  "m": "Entwässerungspraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Dewatering Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "52504",
+  "w": "Entwässerungstechnologin EFZ",
+  "m": "Entwässerungstechnologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Dewatering Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "69201",
+  "w": "Entwicklerin digitales Business EFZ",
+  "m": "Entwickler digitales Business EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Digital Business Developer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "70611",
+  "w": "Fachfrau Apotheke EFZ",
+  "m": "Fachmann Apotheke EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "95515",
+  "w": "Fachfrau Bahntransport EFZ (Berufsfeld «Logistik»)",
+  "m": "Fachmann Bahntransport EFZ (Berufsfeld «Logistik»)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Railway Transport Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "94308",
+  "w": "Fachfrau Betreuung EFZ (ab Lehrbeginn 2021)",
+  "m": "Fachmann Betreuung EFZ",
+  "fr": [
+   "Fachrichtung Kinder",
+   "Fachrichtung Menschen mit Beeinträchtigung",
+   "Fachrichtung Menschen im Alter",
+   "Generalistische Ausbildung"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Certified Social Care Worker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "80202",
+  "w": "Fachfrau Betriebsunterhalt EFZ (ab Lehrbeginn 2023)",
+  "m": "Fachmann Betriebsunterhalt EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Building and Grounds Custodian Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "85701",
+  "w": "Fachfrau Bewegungs- und Gesundheitsförderung EFZ",
+  "m": "Fachmann Bewegungs- und Gesundheitsförderung EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0988 Interdisziplinäre Programme und Qualifikationen mit Gesundheit und Sozialwesen",
+  "en": "Physical Activity and Health Promotion Attendant, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "86918",
+  "w": "Fachfrau Gesundheit EFZ (ab Lehrbeginn 2027)",
+  "m": "Fachmann Gesundheit EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "78404",
+  "w": "Fachfrau Hotellerie-Hauswirtschaft EFZ",
+  "m": "Fachmann Hotellerie-Hauswirtschaft EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Hospitality Services Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "70508",
+  "w": "Fachfrau Information und Dokumentation EFZ (ab Lehrbeginn 2022)",
+  "m": "Fachmann Information und Dokumentation EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Information and Documentation Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "76502",
+  "w": "Fachfrau Kundendialog EFZ (ab Lehrbeginn 2026)",
+  "m": "Fachmann Kundendialog EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Customer Dialogue Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51418",
+  "w": "Industrie- und Unterlagsbodenbauerin EFZ (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Industrie- und Unterlagsbodenbauer EFZ (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Industrial Flooring and Subflooring Worker, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "51424",
+  "w": "Industrie- und Unterlagsbodenbaupraktikerin EBA (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Industrie- und Unterlagsbodenbaupraktiker EBA (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Industrial Flooring and Subflooring Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "88611",
+  "w": "Informatikerin EFZ (ab Lehrbeginn 2021)",
+  "m": "Informatiker EFZ",
+  "fr": [
+   "Plattformentwicklung",
+   "Applikationsentwicklung"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Information Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47118",
+  "w": "Interactive Media Designer EFZ (ab Lehrbeginn 2024)",
+  "m": "Interactive Media Designer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52204",
+  "w": "Isolierspenglerin EFZ (ab Lehrbeginn 2023)",
+  "m": "Isolierspengler EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "47808",
+  "w": "Kältemontage-Praktikerin EBA (ab Lehrbeginn 2021)",
+  "m": "Kältemontage-Praktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Refrigeration System Installation Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "47806",
+  "w": "Kältesystem-Monteurin EFZ (ab Lehrbeginn 2021)",
+  "m": "Kältesystem-Monteur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0713 Elektrizität und Energie",
+  "en": "Refrigeration System Installation Technician, Federal Diploma of Vocational Education and Traning"
+ },
+ {
+  "nr": "47807",
+  "w": "Kältesystem-Planerin EFZ (ab Lehrbeginn 2021)",
+  "m": "Kältesystem-Planer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Refrigeration System Planner, Federal Diploma of Vocational Education and Traning"
+ },
+ {
+  "nr": "80004",
+  "w": "Kaminfegerin EFZ (ab Lehrbeginn 2023)",
+  "m": "Kaminfeger EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Chimney Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "75105",
+  "w": "Kapitänin der Binnenschifffahrt EFZ",
+  "m": "Kapitän der Binnenschifffahrt EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Nautical Captain, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "68104",
+  "w": "Kauffrau EBA (ab Lehrbeginn 2023)",
+  "m": "Kaufmann EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Commercial Employee, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "68800",
+  "w": "Kauffrau EFZ (ab Lehrbeginn 2023)",
+  "m": "Kaufmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Commercial Employee, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "39506",
+  "w": "Keramikerin EFZ",
+  "m": "Keramiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0214 Kunsthandwerk",
+  "en": "Ceramicist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54216",
+  "w": "Klavierbauerin EFZ (Berufsfeld Musikinstrumentenbau)",
+  "m": "Klavierbauer EFZ (Berufsfeld Musikinstrumentenbau)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Piano Maker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "79009",
+  "w": "Köchin EFZ (ab Lehrbeginn 2024)",
+  "m": "Koch EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "64209",
+  "w": "Konstrukteurin EFZ (ab Lehrbeginn 2026)",
+  "m": "Konstrukteur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "54402",
+  "w": "Korb- und Flechtwerkgestalterin EFZ",
+  "m": "Korb- und Flechtwerkgestalter EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0214 Kunsthandwerk",
+  "en": "Basket and Wickerwork Designer, Federal Diploma of Vocational Training and Education"
+ },
+ {
+  "nr": "82113",
+  "w": "Kosmetikerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Kosmetiker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "79025",
+  "w": "Küchenangestellte EBA (ab Lehrbeginn 2024)",
+  "m": "Küchenangestellter EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "31703",
+  "w": "Küferin EFZ",
+  "m": "Küfer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Barrel Maker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "38329",
+  "w": "Kunststoffpraktikerin EBA",
+  "m": "Kunststoffpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Plastics Production Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "38328",
+  "w": "Kunststofftechnologin EFZ (ab Lehrbeginn 2022)",
+  "m": "Kunststofftechnologe EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Plastics Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "65400",
+  "w": "Laborantin EFZ (ab Lehrbeginn 2023)",
+  "m": "Laborant EFZ",
+  "fr": [
+   "Biologie",
+   "Chemie",
+   "Textil",
+   "Farbe und Lack"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Laboratory Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "45305",
+  "w": "Lackierassistentin EBA",
+  "m": "Lackierassistent EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Industrial Painting Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "43905",
+  "w": "Landmaschinenmechanikerin EFZ",
+  "m": "Landmaschinenmechaniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": null
+ },
+ {
+  "nr": "15012",
+  "w": "Landwirtin EFZ (Berufsfeld Landwirtschaft) (ab Lehrbeginn 2026)",
+  "m": "Landwirt EFZ (Berufsfeld Landwirtschaft)",
+  "fr": [
+   "Ackerbau",
+   "Alp- und Berglandwirtschaft",
+   "Biologischer Pflanzenbau",
+   "Rindviehhaltung",
+   "Geflügelhaltung",
+   "Schweinehaltung"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Farmer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "21417",
+  "w": "Lebensmittelpraktikerin EBA (ab Lehrbeginn 2025)",
+  "m": "Lebensmittelpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "21418",
+  "w": "Lebensmitteltechnologin EFZ (Berufsfeld Lebensmitteltechnologie) (ab Lehrbeginn 2025)",
+  "m": "Lebensmitteltechnologe EFZ (Berufsfeld Lebensmitteltechnologie)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "95516",
+  "w": "Logistikerin EBA (ab Lehrbeginn 2024)",
+  "m": "Logistiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Logistician, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "95512",
+  "w": "Logistikerin EFZ (Berufsfeld «Logistik») (ab Lehrbeginn 2024)",
+  "m": "Logistiker EFZ (Berufsfeld «Logistik»)",
+  "fr": [
+   "Distribution",
+   "Lager"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Logistician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47907",
+  "w": "Lüftungsanlagenbauerin EFZ (ab Lehrbeginn 2019)",
+  "m": "Lüftungsanlagenbauer EFZ",
+  "fr": [
+   "Produktion",
+   "Montage"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Ventilation and Air-Conditioning Technician"
+ },
+ {
+  "nr": "47607",
+  "w": "Lüftungsanlagenpraktikerin EBA (Berufsfeld Gebäudetechnik)",
+  "m": "Lüftungsanlagenpraktiker EBA (Berufsfeld Gebäudetechnik)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Ventilation Installation Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "53002",
+  "w": "Malerin EFZ",
+  "m": "Maler EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Painter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "53003",
+  "w": "Malerpraktikerin EBA",
+  "m": "Malerpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Painting Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "51009",
+  "w": "Maurerin EBA",
+  "m": "Maurer EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "51008",
+  "w": "Maurerin EFZ (ab Lehrbeginn 2025)",
+  "m": "Maurer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "45907",
+  "w": "Mechanikpraktikerin EBA (ab Lehrbeginn 2026)",
+  "m": "Mechanikpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "88606",
+  "w": "Mediamatikerin EFZ (ab Lehrbeginn 2019)",
+  "m": "Mediamatiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Mediamatics Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "34200",
+  "w": "Medientechnologin EFZ",
+  "m": "Medientechnologe EFZ",
+  "fr": [
+   "Print",
+   "Printmediatechnik",
+   "Siebdruck"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Media Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "86915",
+  "w": "Medizinische Praxisassistentin EFZ (ab Lehrbeginn 2019)",
+  "m": "Medizinischer Praxisassistent EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Medical Secretary and Assistant, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "87101",
+  "w": "Medizinproduktetechnologin EFZ",
+  "m": "Medizinproduktetechnologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Sterile Processing Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "43816",
+  "w": "Messerschmiedin EFZ (ab Lehrbeginn 2026)",
+  "m": "Messerschmied EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "44508",
+  "w": "Metallbauerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Metallbauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Metalworker, Federal Diploma of Vocatonal Education and Training"
+ },
+ {
+  "nr": "64404",
+  "w": "Metallbaukonstrukteurin EFZ",
+  "m": "Metallbaukonstrukteur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Metal Construction Engineer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "44509",
+  "w": "Metallbaupraktikerin EBA (ab Lehrbeginn 2026)",
+  "m": "Metallbaupraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "48308",
+  "w": "Mikromechanikerin EFZ (Berufsfeld Mikrotechnik)",
+  "m": "Mikromechaniker EFZ (Berufsfeld Mikrotechnik)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Micromechanical Engineer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "48309",
+  "w": "Mikrozeichnerin EFZ (Berufsfeld Mikrotechnik)",
+  "m": "Mikrozeichner EFZ (Berufsfeld Mikrotechnik)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Micromechanical Draughtsman, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "21607",
+  "w": "Milchpraktikerin EBA (ab Lehrbeginn 2020)",
+  "m": "Milchpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Dairy Practitioner, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "21606",
+  "w": "Milchtechnologin EFZ (ab Lehrbeginn 2020)",
+  "m": "Milchtechnologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Dairy Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47424",
+  "w": "Montage-Elektrikerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Montage-Elektriker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52014",
+  "w": "Montagepraktikerin Sonnenschutz und Storentechnik EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Montagepraktiker Sonnenschutz und Storentechnik EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Sun Shading Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "43907",
+  "w": "Motorgerätemechanikerin EFZ",
+  "m": "Motorgerätemechaniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": null
+ },
+ {
+  "nr": "46205",
+  "w": "Motorradmechanikerin EFZ (ab Lehrbeginn 2025)",
+  "m": "Motorradmechaniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "21005",
+  "w": "Müllerin EFZ",
+  "m": "Müller EFZ",
+  "fr": [
+   "Lebensmittel",
+   "Tiernahrung"
+  ],
+  "dauer": 3,
+  "isced": "0721 Nahrungsmittel",
+  "en": "Miller, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47007",
+  "w": "Multimediaelektronikerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Multimediaelektroniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Multimedia Electronics Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "75104",
+  "w": "nautische Fachfrau EFZ",
+  "m": "nautischer Fachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Nautical Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47421",
+  "w": "Netzelektrikerin EFZ (ab Lehrbeginn 2023)",
+  "m": "Netzelektriker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Network Electrician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "42003",
+  "w": "Oberflächenbeschichterin EFZ",
+  "m": "Oberflächenbeschichter EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": null
+ },
+ {
+  "nr": "42004",
+  "w": "Oberflächenpraktikerin EBA",
+  "m": "Oberflächenpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": null
+ },
+ {
+  "nr": "49707",
+  "w": "Oberflächenveredlerin Uhren und Schmuck EFZ (ab Lehrbeginn 2018)",
+  "m": "Oberflächenveredler Uhren und Schmuck EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Surface Finisher for Watches and Jewellery, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "16004",
+  "w": "Obstfachfrau EFZ (Berufsfeld Landwirtschaft) (ab Lehrbeginn 2026)",
+  "m": "Obstfachmann EFZ (Berufsfeld Landwirtschaft)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Fruit Grower, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51205",
+  "w": "Ofenbauerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Ofenbauer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Stove Builder, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54217",
+  "w": "Orgelbauerin EFZ (Berufsfeld Musikinstrumentenbau)",
+  "m": "Orgelbauer EFZ (Berufsfeld Musikinstrumentenbau)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Organ Builder, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "36105",
+  "w": "Orthopädieschuhmacherin EFZ",
+  "m": "Orthopädieschuhmacher EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Orthopaedic Shoemaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54006",
+  "w": "Orthopädistin EFZ (ab Lehrbeginn 2027)",
+  "m": "Orthopädist EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "33004",
+  "w": "Papiertechnologin EFZ",
+  "m": "Papiertechnologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Paper Technologist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "18122",
+  "w": "Pferdefachfrau EFZ (ab Lehrbeginn 2024)",
+  "m": "Pferdefachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "18123",
+  "w": "Pferdewartin EBA (ab Lehrbeginn 2024)",
+  "m": "Pferdewart EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "51419",
+  "w": "Pflästerin EFZ (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Pflästerer EFZ (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Road Paver, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "65328",
+  "w": "Physiklaborantin EFZ",
+  "m": "Physiklaborant EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0711 Chemie und Verfahrenstechnik",
+  "en": "Physics Laboratory Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51105",
+  "w": "Plattenlegerin EFZ (ab Lehrbeginn 2027)",
+  "m": "Plattenleger EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "51106",
+  "w": "Plattenlegerpraktikerin EBA (ab Lehrbeginn 2027)",
+  "m": "Plattenlegerpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "82118",
+  "w": "Podologin EFZ (ab Lehrbeginn 2021)",
+  "m": "Podologe EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Podiatrist Assistant, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "50305",
+  "w": "Polisseuse EBA (ab Lehrbeginn 2018)",
+  "m": "Polisseur EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Polisher, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "90507",
+  "w": "Polydesignerin 3D EFZ (ab Lehrbeginn 2025)",
+  "m": "Polydesigner 3D EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "34711",
+  "w": "Polygrafin EFZ (ab Lehrbeginn 2022)",
+  "m": "Polygraf EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Premedia Specialist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "45708",
+  "w": "Polymechanikerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Polymechaniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "78405",
+  "w": "Praktikerin Hotellerie-Hauswirtschaft EBA",
+  "m": "Praktiker Hotellerie-Hauswirtschaft EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Hospitality and Housekeeping Practitioner, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "80105",
+  "w": "Praktikerin Reinigungstechnik EBA",
+  "m": "Praktiker Reinigungstechnik EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "35319",
+  "w": "Printmedienpraktikerin EBA (ab Lehrbeginn 2025)",
+  "m": "Printmedienpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "45717",
+  "w": "Produktionsmechanikerin EFZ (ab Lehrbeginn 2026)",
+  "m": "Produktionsmechaniker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "48310",
+  "w": "Qualitätsfachfrau in Mikrotechnik EFZ (Berufsfeld Mikrotechnik)",
+  "m": "Qualitätsfachmann in Mikrotechnik EFZ (Berufsfeld Mikrotechnik)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "28420",
+  "w": "Raumausstatterin EFZ",
+  "m": "Raumausstatter EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Interior Designer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "95006",
+  "w": "Recyclistin EFZ (ab Lehrbeginn 2019)",
+  "m": "Recyclist EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Recycling Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "46320",
+  "w": "Reifenpraktikerin EBA",
+  "m": "Reifenpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": "Tyre Work Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "79024",
+  "w": "Restaurantangestellte EBA (ab Lehrbeginn 2019)",
+  "m": "Restaurantangestellter EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Restaurant Service Employee, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "78705",
+  "w": "Restaurantfachfrau EFZ (ab Lehrbeginn 2019)",
+  "m": "Restaurantfachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Restaurant Service Employee, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47706",
+  "w": "Sanitärinstallateurin EFZ (ab Lehrbeginn 2020)",
+  "m": "Sanitärinstallateur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Sanitation Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47608",
+  "w": "Sanitärpraktikerin EBA (Berufsfeld Gebäudetechnik)",
+  "m": "Sanitärpraktiker EBA (Berufsfeld Gebäudetechnik)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Sanitation Installation Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "30513",
+  "w": "Schreinerin EFZ",
+  "m": "Schreiner EFZ",
+  "fr": [
+   "Möbel/Innenausbau",
+   "Bau/Fenster",
+   "Wagner",
+   "Skibau"
+  ],
+  "dauer": 4,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Carpenter Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30506",
+  "w": "Schreinerpraktikerin EBA",
+  "m": "Schreinerpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Carpentry Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "36104",
+  "w": "Schuhmacherin EFZ",
+  "m": "Schuhmacher EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Shoemaker"
+ },
+ {
+  "nr": "56505",
+  "w": "Seilbahnerin EBA (ab Lehrbeginn 2020)",
+  "m": "Seilbahner EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Funicular Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "56504",
+  "w": "Seilbahn-Mechatronikerin EFZ (ab Lehrbeginn 2020)",
+  "m": "Seilbahn-Mechatroniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Funicular Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "50008",
+  "w": "Silberschmiedin EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "m": "Silberschmied EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52009",
+  "w": "Solarinstallateurin EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Solarinstallateur EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Solar Installer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52015",
+  "w": "Solarmonteurin EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Solarmonteur EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Solar Installer, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "45405",
+  "w": "Spenglerin EFZ (ab Lehrbeginn 2020)",
+  "m": "Spengler EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Tinsmith, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47609",
+  "w": "Spenglerpraktikerin EBA (Berufsfeld Gebäudetechnik)",
+  "m": "Spenglerpraktiker EBA (Berufsfeld Gebäudetechnik)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Tinsmith Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "39207",
+  "w": "Steinmetzin EFZ",
+  "m": "Steinmetz EFZ",
+  "fr": [
+   "Bildhauerei",
+   "Industrie",
+   "Bau und Renovation",
+   "Gestaltung und Marmorverarbeitung"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Stonemason,Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51425",
+  "w": "Steinsetzerin EBA (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Steinsetzer EBA (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Stone Layer, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "51420",
+  "w": "Strassenbauerin EFZ (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Strassenbauer EFZ (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Road Builder, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51426",
+  "w": "Strassenbaupraktikerin EBA (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Strassenbaupraktiker EBA (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Roadworks Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "73304",
+  "w": "Strassentransportfachfrau EFZ",
+  "m": "Strassentransportfachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "1041 Verkehrsdienstleistungen",
+  "en": "Driver of Heavyweight Trucks, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "73305",
+  "w": "Strassentransportpraktikerin EBA",
+  "m": "Strassentransportpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "1041 Verkehrsdienstleistungen",
+  "en": "Driver of Lightweight Trucks, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "79010",
+  "w": "Systemgastronomiefachfrau EFZ (ab Lehrbeginn 2025)",
+  "m": "Systemgastronomiefachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "79012",
+  "w": "Systemgastronomiepraktikerin EBA",
+  "m": "Systemgastronomiepraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "26309",
+  "w": "Textilpraktikerin EBA",
+  "m": "Textilpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Textile Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "26311",
+  "w": "Textiltechnologin EFZ (ab Lehrbeginn 2019)",
+  "m": "Textiltechnologe EFZ",
+  "fr": [
+   "Design",
+   "Herstellung",
+   "Veredlung",
+   "Seil- und Hebetechnik",
+   "Mechatronik"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Textile Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "53107",
+  "w": "Theatermalerin EFZ",
+  "m": "Theatermaler EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0212 Mode, Innenarchitektur und industrielles Design",
+  "en": "Federal Diploma of Vocational Education and Training in scene painting"
+ },
+ {
+  "nr": "86917",
+  "w": "Tiermedizinische Praxisassistentin EFZ (ab Lehrbeginn 2020)",
+  "m": "Tiermedizinischer Praxisassistent EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Veterinary Assistant, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "18110",
+  "w": "Tierpflegerin EFZ",
+  "m": "Tierpfleger EFZ",
+  "fr": [
+   "Heimtiere",
+   "Versuchstiere",
+   "Wildtiere"
+  ],
+  "dauer": 3,
+  "isced": "0811 Pflanzenbau und Tierzucht",
+  "en": "Animal Caretaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "49208",
+  "w": "Uhrenarbeiterin EBA",
+  "m": "Uhrenarbeiter EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Watchmaking Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "49005",
+  "w": "Uhrmacherin EFZ",
+  "m": "Uhrmacher EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Watchmaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "49207",
+  "w": "Uhrmacherin Produktion EFZ",
+  "m": "Uhrmacher Produktion EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Production Watchmaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "80203",
+  "w": "Unterhaltspraktikerin EBA (ab Lehrbeginn 2023)",
+  "m": "Unterhaltspraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Building and Grounds Maintenance Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "66500",
+  "w": "Veranstaltungsfachfrau EFZ",
+  "m": "Veranstaltungsfachmann EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0211 Audiovisuelle Techniken und Medienproduktion",
+  "en": "Event Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "31604",
+  "w": "Vergolderin-Einrahmerin EFZ",
+  "m": "Vergolder-Einrahmer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0214 Kunsthandwerk",
+  "en": "Gilder-Framer, Federal Diploma of Vocational Training and Education"
+ },
+ {
+  "nr": "33315",
+  "w": "Verpackungsdruckerin EFZ",
+  "m": "Verpackungsdrucker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "33316",
+  "w": "Verpackungstechnologin EFZ (ab Lehrbeginn 2022)",
+  "m": "Verpackungstechnologe EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Packaging Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "22604",
+  "w": "Weinfachfrau EFZ (Berufsfeld Landwirtschaft) (ab Lehrbeginn 2026)",
+  "m": "Weinfachmann EFZ (Berufsfeld Landwirtschaft)",
+  "fr": [
+   "Winzer",
+   "Kellerwirtschaft"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": "Viticulturist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "28502",
+  "w": "Wohntextilgestalterin EFZ",
+  "m": "Wohntextilgestalter EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0212 Mode, Innenarchitektur und industrielles Design",
+  "en": "Home Textile Designer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54104",
+  "w": "Zahntechnikerin EFZ (ab Lehrbeginn 2018)",
+  "m": "Zahntechniker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Dental Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "64013",
+  "w": "Zeichnerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Zeichner EFZ",
+  "fr": [
+   "Architektur",
+   "Ingenieurbau",
+   "Innenarchitektur",
+   "Landschaftsarchitektur",
+   "Raumplanung"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Draughtsman/Draughtswoman, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30303",
+  "w": "Zimmerin EFZ",
+  "m": "Zimmermann EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Carpenter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "54218",
+  "w": "Zinnpfeifenmacherin EFZ (Berufsfeld Musikinstrumentenbau)",
+  "m": "Zinnpfeifenmacher EFZ (Berufsfeld Musikinstrumentenbau)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Organ Pipe Maker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "46108",
+  "w": "Zweirad-Assistentin EBA",
+  "m": "Zweirad-Assistent EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "36504",
+  "w": "Fachfrau Leder und Textil EFZ",
+  "m": "Fachmann Leder und Textil EFZ",
+  "fr": [
+   "Pferdesport",
+   "Fahrzeuge und Technik",
+   "Feinlederwaren"
+  ],
+  "dauer": 3,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Leather and Textile Worker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "74115",
+  "w": "Fachfrau öffentlicher Verkehr EFZ (ab Lehrbeginn 2022)",
+  "m": "Fachmann öffentlicher Verkehr EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Public Transport Agent, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "80104",
+  "w": "Fachfrau Reinigungstechnik EFZ",
+  "m": "Fachmann Reinigungstechnik EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52008",
+  "w": "Fachfrau Sonnenschutz und Storentechnik EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Fachmann Sonnenschutz und Storentechnik EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Sun Shading Installer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "80607",
+  "w": "Fachfrau Textilpflege EFZ",
+  "m": "Fachmann Textilpflege EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Textile Care Professional, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "46107",
+  "w": "Fahrradmechanikerin EFZ (ab Lehrbeginn 2025)",
+  "m": "Fahrradmechaniker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "44903",
+  "w": "Fahrzeugschlosserin EFZ",
+  "m": "Fahrzeugschlosser EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0716 Kraftfahrzeuge, Schiffe und Flugzeuge",
+  "en": "Vehicle Fitter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52006",
+  "w": "Fassadenbauerin EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Fassadenbauer EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Facade Builder, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52012",
+  "w": "Fassadenbaupraktikerin EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Fassadenbaupraktiker EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Facade Building Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "40312",
+  "w": "Feinwerkoptikerin EFZ",
+  "m": "Feinwerkoptiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Precision Optics Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "21812",
+  "w": "Fleischfachassistentin EBA (ab Lehrbeginn 2017)",
+  "m": "Fleischfachassistent EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0721 Nahrungsmittel",
+  "en": "Butcher Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "21808",
+  "w": "Fleischfachfrau EFZ (ab Lehrbeginn 2017)",
+  "m": "Fleischfachmann EFZ",
+  "fr": [
+   "Gewinnung",
+   "Verarbeitung",
+   "Feinkost und Veredelung"
+  ],
+  "dauer": 3,
+  "isced": "0721 Nahrungsmittel",
+  "en": "Butcher, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "17207",
+  "w": "Floristin EBA (ab Lehrbeginn 2024)",
+  "m": "Florist EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Florist, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "17206",
+  "w": "Floristin EFZ (ab Lehrbeginn 2024)",
+  "m": "Florist EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Florist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30905",
+  "w": "Formenbauerin EFZ",
+  "m": "Formenbauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Mouldmaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30906",
+  "w": "Formenpraktikerin EBA",
+  "m": "Formenpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Mouldmaking Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "19103",
+  "w": "Forstpraktikerin EBA",
+  "m": "Forstpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0821 Forstwirtschaft",
+  "en": null
+ },
+ {
+  "nr": "19104",
+  "w": "Forstwartin EFZ (ab Lehrbeginn 2020)",
+  "m": "Forstwart EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Skilled Forest Worker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "90602",
+  "w": "Fotografin EFZ",
+  "m": "Fotograf EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0211 Audiovisuelle Techniken und Medienproduktion",
+  "en": null
+ },
+ {
+  "nr": "35214",
+  "w": "Fotomedienfachfrau EFZ",
+  "m": "Fotomedienfachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "17022",
+  "w": "Gärtnerin EBA (ab Lehrbeginn 2024)",
+  "m": "Gärtner EBA",
+  "fr": [
+   "Pflanzenproduktion",
+   "Garten- und Landschaftsbau"
+  ],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "17019",
+  "w": "Gärtnerin EFZ (ab Lehrbeginn 2024)",
+  "m": "Gärtner EFZ",
+  "fr": [
+   "Pflanzenproduktion",
+   "Garten- und Landschaftsbau"
+  ],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "88607",
+  "w": "Gebäudeinformatikerin EFZ",
+  "m": "Gebäudeinformatiker EFZ",
+  "fr": [
+   "Planung",
+   "Gebäudeautomation",
+   "Kommunikation und Multimedia"
+  ],
+  "dauer": 4,
+  "isced": null,
+  "en": "Smart Building Solutions Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "64619",
+  "w": "Gebäudetechnikplanerin Heizung EFZ (Berufsfeld Gebäudetechnikplanung) (ab Lehrbeginn 2025)",
+  "m": "Gebäudetechnikplaner Heizung EFZ (Berufsfeld Gebäudetechnikplanung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Building Services Technician, Federal Diploma of Vocational Education and Training, Option: Heating"
+ },
+ {
+  "nr": "64620",
+  "w": "Gebäudetechnikplanerin Lüftung EFZ (Berufsfeld Gebäudetechnikplanung) (ab Lehrbeginn 2025)",
+  "m": "Gebäudetechnikplaner Lüftung EFZ (Berufsfeld Gebäudetechnikplanung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Building Services Technician, Federal Diploma of Vocational Education and Training, Option: Ventilation and Air Conditioning"
+ },
+ {
+  "nr": "64621",
+  "w": "Gebäudetechnikplanerin Sanitär EFZ (Berufsfeld Gebäudetechnikplanung) (ab Lehrbeginn 2025)",
+  "m": "Gebäudetechnikplaner Sanitär EFZ (Berufsfeld Gebäudetechnikplanung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Building Services Technician, Federal Diploma of Vocational Education and Training, Option: Sanitation"
+ },
+ {
+  "nr": "54213",
+  "w": "Geigenbauerin EFZ",
+  "m": "Geigenbauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Violin Maker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "17025",
+  "w": "Gemüsegärtnerin EFZ (Berufsfeld Landwirtschaft) (ab Lehrbeginn 2026)",
+  "m": "Gemüsegärtner EFZ (Berufsfeld Landwirtschaft)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Horticulturalist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "64105",
+  "w": "Geomatikerin EFZ (ab Lehrbeginn 2025)",
+  "m": "Geomatiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "52007",
+  "w": "Gerüstbauerin EFZ (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Gerüstbauer EFZ (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Scaffold Erector, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52013",
+  "w": "Gerüstbaupraktikerin EBA (Berufsfeld Gebäudehülle) (ab Lehrbeginn 2024)",
+  "m": "Gerüstbaupraktiker EBA (Berufsfeld Gebäudehülle)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Scaffold Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "53109",
+  "w": "Gestalterin Werbetechnik EFZ (ab Lehrbeginn 2022)",
+  "m": "Gestalter Werbetechnik EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Advertising Designer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "25805",
+  "w": "Gewebegestalterin EFZ",
+  "m": "Gewebegestalter EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0214 Kunsthandwerk",
+  "en": null
+ },
+ {
+  "nr": "52002",
+  "w": "Gipserin-Trockenbauerin EFZ",
+  "m": "Gipser-Trockenbauer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Plasterer-Drywaller, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "52003",
+  "w": "Gipserpraktikerin EBA",
+  "m": "Gipserpraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Plastering Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "40404",
+  "w": "Glasbauerin EFZ (ab Lehrbeginn 2027)",
+  "m": "Glasbauer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "40405",
+  "w": "Glasbaupraktikerin EBA",
+  "m": "Glasbaupraktiker EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "39605",
+  "w": "Glasmalerin EFZ",
+  "m": "Glasmaler EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0214 Kunsthandwerk",
+  "en": null
+ },
+ {
+  "nr": "51416",
+  "w": "Gleisbauerin EFZ (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Gleisbauer EFZ (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Tracklayer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51422",
+  "w": "Gleisbaupraktikerin EBA (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Gleisbaupraktiker EBA (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Tracklaying Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "50007",
+  "w": "Goldschmiedin EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "m": "Goldschmied EFZ (Berufsfeld Schmuck- und Objektegestaltung)",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Goldsmith / Silversmith, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "90306",
+  "w": "Grafikerin EFZ (ab Lehrbeginn 2023)",
+  "m": "Grafiker EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "44305",
+  "w": "Graveurin EFZ",
+  "m": "Graveur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Engraver,Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51417",
+  "w": "Grundbauerin EFZ (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Grundbauer EFZ (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Foundation Engineer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "51423",
+  "w": "Grundbaupraktikerin EBA (Berufsfeld Verkehrswegbau) (ab Lehrbeginn 2014)",
+  "m": "Grundbaupraktiker EBA (Berufsfeld Verkehrswegbau)",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0732 Baugewerbe, Hoch- und Tiefbau",
+  "en": "Foundation Works Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "41208",
+  "w": "Gussformerin EFZ",
+  "m": "Gussformer EFZ",
+  "fr": [
+   "Dauerformen",
+   "Verlorene Formen"
+  ],
+  "dauer": 3,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Mouldmaker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "41211",
+  "w": "Gusstechnologin EFZ",
+  "m": "Gusstechnologe EFZ",
+  "fr": [
+   "Giessereimodellbau Profil G",
+   "Giessereimodellbau Profil E",
+   "Dauerformen Profil G",
+   "Dauerformen Profil E",
+   "Verlorene Formen Profil G",
+   "Verlorene Formen Profil E"
+  ],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Casting Technician, Federal Diploma of Vocational Education and Training,"
+ },
+ {
+  "nr": "47605",
+  "w": "Heizungsinstallateurin EFZ (ab Lehrbeginn 2020)",
+  "m": "Heizungsinstallateur EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": null,
+  "en": "Heating Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "47606",
+  "w": "Heizungspraktikerin EBA (Berufsfeld Gebäudetechnik)",
+  "m": "Heizungspraktiker EBA (Berufsfeld Gebäudetechnik)",
+  "fr": [],
+  "dauer": 2,
+  "isced": null,
+  "en": "Heating Installation Assistant, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "30206",
+  "w": "Holzbearbeiterin EBA",
+  "m": "Holzbearbeiter EBA",
+  "fr": [],
+  "dauer": 2,
+  "isced": "0722 Werkstoffe (Holz, Papier, Kunststoff, Glas)",
+  "en": "Timber Worker, Federal Certificate of Vocational Education and Training"
+ },
+ {
+  "nr": "90003",
+  "w": "Holzbildhauerin EFZ",
+  "m": "Holzbildhauer EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0214 Kunsthandwerk",
+  "en": "Wood Sculptor, Federal Diploma of Vocational Training and Education"
+ },
+ {
+  "nr": "30203",
+  "w": "Holzhandwerkerin EFZ",
+  "m": "Holzhandwerker EFZ",
+  "fr": [
+   "Drechslerei",
+   "Weissküferei"
+  ],
+  "dauer": 4,
+  "isced": "0214 Kunsthandwerk",
+  "en": "Woodworker, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "30004",
+  "w": "Holzindustriefachfrau EFZ",
+  "m": "Holzindustriefachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": null
+ },
+ {
+  "nr": "85505",
+  "w": "Hörsystemakustikerin EFZ",
+  "m": "Hörsystemakustiker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0914 Medizinische Diagnostik und Behandlungstechnik",
+  "en": "Hearing Aid Professional, Federal Diploma of Vocational Training and Education"
+ },
+ {
+  "nr": "79200",
+  "w": "Hotel-Kommunikationsfachfrau EFZ",
+  "m": "Hotel-Kommunikationsfachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Guest Relations Officer, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "43703",
+  "w": "Hufschmiedin EFZ",
+  "m": "Hufschmied EFZ",
+  "fr": [],
+  "dauer": 4,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Farrier, Federal Diploma of Vocational Training and Education"
+ },
+ {
+  "nr": "88616",
+  "w": "ICT-Fachfrau EFZ (ab Lehrbeginn 2026)",
+  "m": "ICT-Fachmann EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "ICT Technician, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "39508",
+  "w": "Industriekeramikerin EFZ (ab Lehrbeginn 2022)",
+  "m": "Industriekeramiker EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": null,
+  "en": "Industrial Ceramist, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "53304",
+  "w": "Industrielackiererin EFZ (ab Lehrbeginn 2016)",
+  "m": "Industrielackierer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0715 Maschinenbau und Metallverarbeitung",
+  "en": "Industrial Painter, Federal Diploma of Vocational Education and Training"
+ },
+ {
+  "nr": "28404",
+  "w": "Industriepolsterin EFZ",
+  "m": "Industriepolsterer EFZ",
+  "fr": [],
+  "dauer": 3,
+  "isced": "0723 Textilien (Kleidung, Schuhwerk und Leder)",
+  "en": "Industrial Upholsterer, Federal Diploma of Vocational Education and Training"
+ }
+]

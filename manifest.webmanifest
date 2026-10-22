@@ -1,0 +1,17 @@
+{
+  "name": "Next Move – Schule oder Lehre?",
+  "short_name": "Next Move",
+  "description": "Finde heraus, ob Gymnasium oder Berufslehre zu dir passt – und welcher Lehrberuf.",
+  "lang": "de-CH",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f4ff",
+  "theme_color": "#5b3df5",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
