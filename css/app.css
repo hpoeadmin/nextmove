@@ -455,10 +455,27 @@ footer.foot { padding: 30px 0 50px; color: var(--ink-3); font-size: 14px; text-a
   .result-hero { min-height: 0; box-shadow: none; border-radius: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .result-hero .in { padding: 20px; }
   .card, .field-card, .jcard, .ladder .lane, .meter .fill, .meter .track, .ibars .t i, .timeline li::before, .match, .pill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-  .section-title { break-after: avoid; margin-top: 18px; }
-  .grid-cards { grid-template-columns: repeat(4, 1fr); gap: 8px; padding-bottom: 0; }
-  .jcard { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+  /* Schatten drucken als graue Kästen – im Druck weglassen */
+  * { box-shadow: none !important; }
+  .card { border: 1px solid #ddd; }
+  /* Grafische Elemente nie über einen Seitenumbruch teilen (page-break-* für Safari/iPad) */
+  .card, .jcard, .field-card, .result-hero, .ladder .lane, .ibars .ib, .meter, .timeline li, .reasons > *, .print-head {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .section-title { break-after: avoid; page-break-after: avoid; margin-top: 18px; }
+  /* Safari teilt Raster-Elemente trotz break-inside – als Inline-Blöcke sind sie unteilbar */
+  .cards2, .grid-cards, .field-cards { display: block; font-size: 0; padding-bottom: 0; }
+  .cards2 > * { display: inline-block; vertical-align: top; width: 49%; margin: 0 0 12px; font-size: 12pt; }
+  .cards2 > :nth-child(odd) { margin-right: 2%; }
+  .cards2 > :only-child { width: 100%; margin-right: 0; }
+  .grid-cards > .jcard { display: inline-flex; vertical-align: top; width: 23.5%; margin: 0 2% 8px 0; font-size: 12pt; }
+  .grid-cards > .jcard:nth-child(4n) { margin-right: 0; }
+  .jcard { border: 1px solid #ddd; }
+  .jcard h3 { overflow-wrap: anywhere; hyphens: auto; }
+  .field-cards > .field-card { display: inline-flex; vertical-align: top; width: 32%; margin: 0 2% 8px 0; font-size: 12pt; }
+  .field-cards > .field-card:nth-child(3n) { margin-right: 0; }
+  .field-card .in { padding-top: 46px; }
+  .ibars .ib { grid-template-columns: 26px minmax(0, 1fr) 70px 30px; }
   .jcard .img { height: 46px; }
   .jcard .img .femoji { display: none; }
   .jcard .body { padding: 8px 10px; }
