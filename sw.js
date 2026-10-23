@@ -1,5 +1,5 @@
 // Automatisch erzeugt mit tools/build_assets.py – macht Next Move offline nutzbar.
-const CACHE = "nextmove-9ac2ba6ef7";
+const CACHE = "nextmove-37bc00a12d";
 const FILES = [
   "./",
   "index.html",
@@ -87,7 +87,22 @@ self.addEventListener("activate", (e) => {
   );
 });
 
+// Seiten, Code und Daten: zuerst online holen (immer die neuste Version), offline aus dem Cache.
+// Bilder und Icons ändern sich kaum: zuerst aus dem Cache.
 self.addEventListener("fetch", (e) => {
-  if (e.request.method !== "GET" || new URL(e.request.url).origin !== location.origin) return;
-  e.respondWith(caches.match(e.request, { ignoreSearch: true }).then((r) => r || fetch(e.request)));
+  const url = new URL(e.request.url);
+  if (e.request.method !== "GET" || url.origin !== location.origin) return;
+  const statisch = /\.(jpg|jpeg|png|webp|svg)$/i.test(url.pathname);
+  if (statisch) {
+    e.respondWith(caches.match(e.request, { ignoreSearch: true }).then((r) => r || fetch(e.request)));
+    return;
+  }
+  e.respondWith(
+    fetch(e.request, { cache: "no-cache" })
+      .then((res) => {
+        if (res.ok) { const kopie = res.clone(); caches.open(CACHE).then((c) => c.put(e.request, kopie)); }
+        return res;
+      })
+      .catch(() => caches.match(e.request, { ignoreSearch: true }))
+  );
 });

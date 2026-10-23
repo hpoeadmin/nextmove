@@ -89,6 +89,7 @@
   const go = (hash) => { if (location.hash === hash) render(); else location.hash = hash; };
   const feld = (id) => window.NM_FELDER[id];
   const beruf = (id) => window.NM_BERUFE.find((b) => b.id === id);
+  const COPYRIGHT = `© ${new Date().getFullYear()} Hans Peter Oeschger`;
   function toast(msg) {
     const t = document.createElement("div");
     t.className = "toast";
@@ -146,6 +147,7 @@
         }).join("")}</div>` : ""}
         <div class="privacy">🔒 Deine Antworten bleiben nur auf diesem Gerät gespeichert.</div>
         <div style="margin-top:10px"><a class="link small" href="#/info">Infos für Eltern, Lehrpersonen & Berufsberatung</a></div>
+        <div class="small" style="margin-top:14px;opacity:.75">${COPYRIGHT}</div>
         ${storageOk ? "" : `<div class="banner">Achtung: Dieser Browser erlaubt kein Speichern (z. B. privater Modus). Deine Antworten gehen beim Schliessen verloren.</div>`}
       </div>
     </section>`;
@@ -205,7 +207,7 @@
         <button class="cta-card" data-action="nav" data-href="#/berufe?fav=1"><span class="ico">❤️</span><span><h3>Meine Favoriten</h3><p>${(p.favoriten || []).length ? (p.favoriten || []).length + " Berufe gemerkt" : "Merke dir Berufe mit dem Herz."}</p></span></button>
         <button class="cta-card" data-action="nav" data-href="#/auswertung" ${v.kern ? "" : "disabled style='opacity:.6'"}><span class="ico">🏁</span><span><h3>Auswertung</h3><p>${v.kern ? "Dein Weg, deine Top-Berufe und nächste Schritte." : "Wird nach den Etappen 1, 2, 3 und 8 freigeschaltet."}</p></span></button>
       </div>
-      <footer class="foot">Next Move · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a></footer>
+      <footer class="foot">Next Move · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
     </main>`;
   }
 
@@ -284,7 +286,7 @@
       html: (p) => `<div class="q-emoji">📍</div><div class="q-title">Wie alt bist du – und wo wohnst du?</div>
         <div class="chips" style="margin-bottom:26px">${[13, 14, 15, 16, 17].map((a) => `<button class="chip ${p.alter === a ? "on" : ""}" data-action="set" data-k="alter" data-v="${a}" data-num="1">${a === 17 ? "17+" : a} Jahre</button>`).join("")}</div>
         <div class="q-sub" style="margin-bottom:12px">Dein Kanton:</div>
-        <div class="choice-grid">${window.NM_KANTONE.map((k) => `<button class="choice ${p.kanton === k.code ? "on" : ""}" data-action="set" data-k="kanton" data-v="${k.code}"><span class="code">${k.code}</span>${k.name}</button>`).join("")}</div>`,
+        <div class="choice-grid kantone">${window.NM_KANTONE.map((k) => `<button class="choice ${p.kanton === k.code ? "on" : ""}" data-action="set" data-k="kanton" data-v="${k.code}"><span class="code">${k.code}</span><span class="name">${k.name}</span></button>`).join("")}</div>`,
       valid: (p) => !!(p.alter && p.kanton)
     },
     klasse: {
@@ -763,7 +765,10 @@
           <li>Weiterführende Infos: <a href="${LINKS.sieben}" target="_blank" rel="noopener">berufsberatung.ch – In 7 Schritten zur Berufswahl</a>, <a href="${LINKS.mittelschulen}" target="_blank" rel="noopener">Mittelschulen und Maturitäten</a>.</li>
           <li>Fotos: Unsplash (Unsplash-Lizenz).</li>
         </ul></div>
-      <footer class="foot"><a href="${p ? "#/home" : "#/start"}">‹ Zurück</a></footer>
+      <div class="card"><h3>🔄 App aktualisieren</h3>
+        <p>Next Move funktioniert auch offline. Neue Versionen werden automatisch geladen, sobald das Gerät online ist. Hier kannst du sofort nachsehen.</p>
+        <div class="row"><button class="btn soft sm" data-action="updatecheck">🔄 Auf Update prüfen</button></div></div>
+      <footer class="foot"><a href="${p ? "#/home" : "#/start"}">‹ Zurück</a><div class="copy">${COPYRIGHT} · Alle Rechte vorbehalten</div></footer>
     </main>`;
   }
 
@@ -804,6 +809,32 @@
     })();
   }
 
+  // ---------- Update ----------
+  let updateLaeuft = false;
+  async function aufUpdatePruefen() {
+    if (!("serviceWorker" in navigator) || !location.protocol.startsWith("http")) {
+      toast("Updates gibt es nur, wenn Next Move über eine Webadresse geöffnet ist.");
+      return;
+    }
+    if (!navigator.onLine) { toast("Keine Internetverbindung. Bitte später nochmals versuchen."); return; }
+    try {
+      const reg = await navigator.serviceWorker.getRegistration();
+      if (!reg) { toast("Next Move ist noch nicht offline gespeichert. Lade die Seite neu."); return; }
+      updateLaeuft = true;
+      await reg.update();
+      if (reg.installing || reg.waiting) {
+        toast("Neue Version gefunden – wird geladen …");
+        if (reg.waiting) location.reload();
+      } else {
+        updateLaeuft = false;
+        toast("Du hast bereits die neuste Version ✓");
+      }
+    } catch (err) {
+      updateLaeuft = false;
+      toast("Update-Prüfung fehlgeschlagen. Bitte später nochmals versuchen.");
+    }
+  }
+
   function profilMenu() {
     const p = profile();
     showOverlay(`<div class="celebrate" style="text-align:left">
@@ -813,6 +844,7 @@
         <button class="btn soft" data-action="schritt" data-id="ueber">✏️ Name & Angaben ändern</button>
         <button class="btn soft" data-action="wechseln">👥 Profil wechseln / neues Profil</button>
         <button class="btn soft" data-action="nav" data-href="#/info">ℹ️ Infos & Datenschutz</button>
+        <button class="btn soft" data-action="updatecheck">🔄 Auf Update prüfen</button>
         <button class="btn danger" data-action="loeschen">🗑️ Mein Profil löschen</button>
         <button class="btn ghost" data-action="schliessen">Schliessen</button>
       </div></div>`);
@@ -933,6 +965,7 @@
       render();
     },
     profilmenu() { profilMenu(); },
+    updatecheck() { closeOverlay(); aufUpdatePruefen(); },
     wechseln() { state.activeId = null; save(); go("#/start"); },
     loeschen() {
       const p = profile();
@@ -1012,6 +1045,8 @@
   render();
 
   if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
+    navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});
+    // Nach einer manuellen Update-Prüfung übernimmt der neue Service Worker sofort – dann neu laden
+    navigator.serviceWorker.addEventListener("controllerchange", () => { if (updateLaeuft) location.reload(); });
   }
 })();
