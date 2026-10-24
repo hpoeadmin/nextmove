@@ -809,6 +809,46 @@
     })();
   }
 
+  // ---------- PDF (installierte App) ----------
+  let pdfDatei = null;
+  async function pdfErstellen() {
+    const root = document.getElementById("auswertung");
+    if (!root || !window.NM_PDF) return;
+    const p = profile();
+    const busy = document.createElement("div");
+    busy.className = "pdf-busy";
+    busy.textContent = "PDF wird erstellt …";
+    document.body.appendChild(busy);
+    try {
+      const blob = await window.NM_PDF.erstelle(root, `Next Move – Auswertung von ${p.name}`);
+      const name = `Next-Move-Auswertung-${(p.name || "Ich").replace(/[^\wäöüÄÖÜ-]+/g, "-")}.pdf`;
+      pdfDatei = new File([blob], name, { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const teilbar = navigator.canShare && navigator.canShare({ files: [pdfDatei] });
+      showOverlay(`<div class="celebrate">
+        <div class="badge">📄</div>
+        <h2>Dein PDF ist bereit</h2>
+        <p class="muted">${teilbar ? "Tippe auf «Teilen» – dort kannst du drucken, in Dateien sichern oder per Mail senden." : "Öffne das PDF und sichere oder drucke es von dort."}</p>
+        <div class="btns">
+          ${teilbar ? `<button class="btn grad big" data-action="pdfteilen">📤 Teilen / Drucken</button>` : ""}
+          <a class="btn ${teilbar ? "soft" : "grad big"}" href="${url}" target="_blank" rel="noopener">📄 PDF öffnen</a>
+          <button class="btn ghost" data-action="schliessen">Schliessen</button>
+        </div></div>`);
+    } catch (err) {
+      toast("Das PDF konnte nicht erstellt werden. Bitte nochmals versuchen.");
+    } finally {
+      busy.remove();
+    }
+  }
+  async function pdfTeilen() {
+    if (!pdfDatei) return;
+    try {
+      await navigator.share({ files: [pdfDatei], title: pdfDatei.name });
+    } catch (err) {
+      if (err && err.name !== "AbortError") toast("Teilen hat nicht geklappt. Öffne das PDF stattdessen.");
+    }
+  }
+
   // ---------- Update ----------
   let updateLaeuft = false;
   async function aufUpdatePruefen() {
@@ -983,7 +1023,12 @@
       kartenStapel = [];
       go("#/schritt/schule/0");
     },
-    drucken() { window.print(); },
+    drucken() {
+      // In der installierten App (Home-Bildschirm) ignoriert iOS/iPadOS window.print() – dort PDF selbst erzeugen
+      if (navigator.standalone === true) pdfErstellen();
+      else window.print();
+    },
+    pdfteilen() { pdfTeilen(); },
     export() {
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
       const a = document.createElement("a");
