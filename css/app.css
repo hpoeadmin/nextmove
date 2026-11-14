@@ -460,11 +460,31 @@ footer.foot { padding: 30px 0 50px; color: var(--ink-3); font-size: 14px; text-a
   .topbar .logo span.word { display: none; }
 }
 
+/* ---------- Lizenz / Testversion ---------- */
+.testbadge { border: 0; background: #fff4d6; color: #7a5200; font: 800 14px var(--font); border-radius: 999px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
+.testhinweis { display: flex; align-items: center; gap: 14px; justify-content: space-between; flex-wrap: wrap; background: #fff4d6; color: #5c3d00; border-radius: 18px; padding: 14px 18px; margin-top: 18px; }
+.testhinweis span { flex: 1 1 280px; }
+.gesperrt { position: relative; border-radius: var(--r); }
+.gesperrt-inhalt { filter: blur(7px); opacity: 0.6; pointer-events: none; user-select: none; -webkit-user-select: none; max-height: 300px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+.gesperrt-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); max-width: calc(100% - 32px); border: 0; border-radius: 999px; padding: 14px 22px;
+  background: var(--grad); color: #fff; font: 800 16px var(--font); box-shadow: var(--shadow); cursor: pointer; }
+.gesperrt-btn:active { transform: translate(-50%, -50%) scale(0.97); }
+@media (max-width: 600px) { .testbadge span { display: none; } .testbadge { padding: 8px 10px; } }
+.lizenz-dialog { max-height: calc(100vh - 40px); overflow-y: auto; }
+.lizenz-dialog .badge { margin-top: 0; }
+.lizenz-liste { list-style: none; padding: 0; margin: 0 0 16px; text-align: left; display: grid; gap: 6px; }
+.lizenz-code { min-height: 84px; font: 13px ui-monospace, Menlo, monospace; word-break: break-all; }
+.lizenz-fehler { color: #c8372a; font-weight: 700; font-size: 14px; min-height: 1em; margin: 8px 0 0; }
+
 /* ---------- Druck / PDF ---------- */
 @media print {
   @page { margin: 14mm; }
   body { background: #fff; font-size: 12pt; }
   .topbar, .toolbar, .no-print, footer.foot, .banner, .toast, .overlay, #confetti { display: none !important; }
+  /* Testversion: Auswertung nicht drucken (auch nicht über das Browsermenü) */
+  body.testmodus #auswertung { display: none !important; }
+  body.testmodus #app::after { content: "Drucken ist in der Testversion von Next Move nicht möglich."; display: block; padding: 40px; font-size: 16pt; }
   .wrap { max-width: none; padding: 0; }
   .print-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #5b3df5; padding-bottom: 8px; margin-bottom: 12px; }
   .result-hero { min-height: 0; box-shadow: none; border-radius: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }

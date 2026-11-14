@@ -53,6 +53,35 @@ sw.js                   Service Worker (generiert)
 - **Nach jeder Änderung** `python3 tools/build_assets.py` ausführen. Das aktualisiert die Version des
   Service Workers, damit installierte Apps die neue Version erhalten.
 
+## Lizenzen (Testversion / Vollversion)
+
+Ohne Lizenz läuft Next Move als **Testversion**: Alle Etappen sind spielbar. Die Auswertung zeigt die
+Weg-Empfehlung und die Top 3 Berufe. Kompass, Kantonsinfos, Interessen, Berufsfelder, alle weiteren Berufe,
+nächste Schritte und Gesprächsfragen sind verschwommen. Drucken/PDF, Favoriten, Export/Import und Match-%
+im Berufe-Explorer sind gesperrt, und es gibt nur 1 Profil pro Gerät.
+
+Mit einem **Lizenzcode** ist alles freigeschaltet. Stufen: Eltern (bis 3 Profile, Standard: unbefristet),
+Klasse und Schule (unbegrenzt viele Profile, Standard: bis 31. Juli). Die Codes sind signiert (ECDSA P-256) und
+werden offline im Browser geprüft. Es gibt keinen Server, und es werden keine Daten übermittelt.
+
+```
+node tools/lizenz.mjs neu --stufe schule --name "Schule Musterdorf" --url https://deine-adresse.ch/
+node tools/lizenz.mjs neu --stufe eltern --name "Familie Muster"
+node tools/lizenz.mjs neu --stufe klasse --name "Sek Musterdorf, Klasse 2b" --bis 2027-07-31
+node tools/lizenz.mjs pruefen NM1-…
+node tools/lizenz.mjs liste
+```
+
+Das Werkzeug gibt den Code und (mit `--url`, wird gemerkt) einen **Freischalt-Link** `…/#/lizenz?c=NM1-…` aus.
+Der Link öffnet die App und schaltet sie sofort frei. Alternativ fügt man den Code im Dialog «🔑 Lizenz eingeben» ein.
+
+- Der **private Schlüssel** liegt in `~/.nextmove/lizenz-privat.jwk`, ausserhalb des Projekts. **Gut sichern**
+  und nie weitergeben. Ohne ihn können keine Codes mehr erzeugt werden. Ein neuer Schlüssel macht alle
+  ausgestellten Lizenzen ungültig.
+- Alle ausgestellten Lizenzen werden in `~/.nextmove/lizenzen.csv` notiert (z. B. für die Rechnungsstellung).
+- Kontakt für Bestellungen: `KONTAKT` in `js/lizenz.js` eintragen (erscheint im Freischalt-Dialog).
+- Die Lizenz gilt pro Gerät bzw. Browser. Eine Schule gibt denselben Code für alle Tablets weiter.
+
 ## Quellen
 
 - SBFI-Berufsverzeichnis, berufliche Grundbildungen: <https://www.becc.admin.ch/becc/public/bvz/beruf/grundbildungen>

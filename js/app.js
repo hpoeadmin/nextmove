@@ -1,6 +1,8 @@
 // Next Move – App (Ansichten, Navigation, Speicherung)
 (function () {
   const E = window.NM_ENGINE;
+  const L = window.NM_LIZENZ;
+  const voll = () => L.voll();
   const KEY = "nextmove.v1";
   const AVATARE = ["🦊", "🐼", "🐯", "🦁", "🐸", "🐙", "🦄", "🐲", "🐵", "🐨", "🐧", "🦉", "🐬", "🐝", "🦋", "🌟", "🚀", "⚡", "🔥", "🌈", "🎧", "🛹", "⚽", "🎨"];
   const LINKS = {
@@ -97,6 +99,13 @@
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 2200);
   }
+  // Teil der Auswertung, der in der Testversion verschwommen und gesperrt ist
+  function gesperrt(inhalt, text) {
+    if (voll()) return inhalt;
+    return `<div class="gesperrt"><div class="gesperrt-inhalt" aria-hidden="true" inert>${inhalt}</div>
+      <button class="gesperrt-btn" data-action="lizenz">🔒 ${text || "Mit Lizenz freischalten"}</button></div>`;
+  }
+  function benannteProfile() { return state.profiles.filter((p) => p.name); }
   function matchCls(pct) { return pct >= 75 ? "" : pct >= 55 ? "mid" : "low"; }
   function niveauLabels(p) {
     const k = E.kanton(p);
@@ -146,7 +155,7 @@
           return `<button class="profile-chip" data-action="waehle" data-id="${p.id}"><span class="av">${p.avatar}</span><span>${esc(p.name)}<small>${v.pct}% geschafft</small></span></button>`;
         }).join("")}</div>` : ""}
         <div class="privacy">🔒 Deine Antworten bleiben nur auf diesem Gerät gespeichert.</div>
-        <div style="margin-top:10px"><a class="link small" href="#/info">Infos für Eltern, Lehrpersonen & Berufsberatung</a></div>
+        <div style="margin-top:10px"><a class="link small" href="#/info">Infos für Eltern, Lehrpersonen & Berufsberatung</a> · <a class="link small" href="#" data-action="lizenz">${voll() ? "🔑 " + esc(L.label()) : "🔑 Lizenz eingeben"}</a></div>
         <div class="small" style="margin-top:14px;opacity:.75">${COPYRIGHT}</div>
         ${storageOk ? "" : `<div class="banner">Achtung: Dieser Browser erlaubt kein Speichern (z. B. privater Modus). Deine Antworten gehen beim Schliessen verloren.</div>`}
       </div>
@@ -158,6 +167,7 @@
     return `<header class="topbar"><div class="wrap">
       <a class="logo" href="#/home"><span class="logo-mark">➜</span><span class="word">Next Move</span></a>
       <span class="spacer"></span>
+      ${voll() ? "" : `<button class="testbadge" data-action="lizenz" title="Testversion – Lizenz eingeben" aria-label="Testversion – Lizenz eingeben">🔑<span> Testversion</span></button>`}
       <a class="btn soft sm" href="#/berufe">🔎 Berufe</a>
       ${p ? `<button class="avatar-pill" data-action="profilmenu"><span class="av">${p.avatar}</span>${esc(p.name || "Ich")}</button>` : ""}
     </div></header>`;
@@ -204,7 +214,8 @@
       <div class="section-title"><h2>Entdecken</h2></div>
       <div class="cards2">
         <button class="cta-card" data-action="nav" data-href="#/berufe"><span class="ico">🔎</span><span><h3>Berufe entdecken</h3><p>${window.NM_BERUFE.length} Lehrberufe aus dem SBFI-Berufsverzeichnis – mit Kurzbeschrieb.</p></span></button>
-        <button class="cta-card" data-action="nav" data-href="#/berufe?fav=1"><span class="ico">❤️</span><span><h3>Meine Favoriten</h3><p>${(p.favoriten || []).length ? (p.favoriten || []).length + " Berufe gemerkt" : "Merke dir Berufe mit dem Herz."}</p></span></button>
+        ${voll() ? `<button class="cta-card" data-action="nav" data-href="#/berufe?fav=1"><span class="ico">❤️</span><span><h3>Meine Favoriten</h3><p>${(p.favoriten || []).length ? (p.favoriten || []).length + " Berufe gemerkt" : "Merke dir Berufe mit dem Herz."}</p></span></button>`
+          : `<button class="cta-card" data-action="lizenz"><span class="ico">❤️</span><span><h3>Meine Favoriten 🔒</h3><p>Berufe merken kannst du mit einer Lizenz.</p></span></button>`}
         <button class="cta-card" data-action="nav" data-href="#/auswertung" ${v.kern ? "" : "disabled style='opacity:.6'"}><span class="ico">🏁</span><span><h3>Auswertung</h3><p>${v.kern ? "Dein Weg, deine Top-Berufe und nächste Schritte." : "Wird nach den Etappen 1, 2, 3 und 8 freigeschaltet."}</p></span></button>
       </div>
       <footer class="foot">Next Move · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
@@ -523,7 +534,8 @@
 
     return `${topbar(p)}
     <main class="wrap" id="auswertung">
-      <div class="print-head"><b>➜ Next Move – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}</span></div>
+      <div class="print-head"><b>➜ Next Move – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}${voll() && L.info().name ? " · " + esc(L.info().name) : ""}</span></div>
+      ${voll() ? "" : `<div class="testhinweis no-print"><span>🔑 <b>Testversion:</b> Du siehst deine Weg-Empfehlung und deine Top 3 Berufe. Mit einer Lizenz bekommst du die ganze Auswertung zum Drucken.</span><button class="btn grad sm" data-action="lizenz">Freischalten</button></div>`}
       ${v.pct < 100 ? `<div class="banner no-print">Tipp: Du hast ${v.total - v.erledigt} Etappe(n) noch nicht gemacht. Mit allen Antworten wird deine Auswertung genauer. <a href="#/home">Zu den Etappen</a></div>` : ""}
 
       <section class="result-hero" ${bg(heroImg)}><div class="in">
@@ -533,7 +545,7 @@
       </div></section>
 
       <div class="section-title"><h2>🧭 Dein Kompass</h2></div>
-      <div class="cards2">
+      ${gesperrt(`<div class="cards2">
         <div class="card">
           <h3>Wohin zieht es dich?</h3>
           <div class="meter"><div class="lbls"><span>🛠️ Praxis & Beruf</span><span>📚 Schule & Theorie</span></div>
@@ -551,7 +563,7 @@
           ${w.fms ? `<div class="card tint" style="margin-top:12px"><h3>💡 Tipp: Fachmittelschule (FMS)</h3><p class="small" style="margin:0">Dich interessieren Menschen und Gesundheit. Die FMS bereitet auf Berufe in Gesundheit, Sozialem und Pädagogik vor (Fachmatur → Fachhochschule / PH).</p></div>` : ""}
           ${w.eba ? `<div class="card tint" style="margin-top:12px"><h3>🌱 Gut zu wissen: EBA</h3><p class="small" style="margin:0">Eine 2-jährige Lehre mit Berufsattest (EBA) ist ein guter Einstieg. Danach kannst du oft verkürzt ins EFZ wechseln.</p></div>` : ""}
         </div>
-      </div>
+      </div>`, "Kompass & Begründung freischalten")}
 
       <div class="section-title"><h2>🪜 Kein Abschluss ohne Anschluss</h2></div>
       <div class="card">
@@ -565,15 +577,15 @@
       </div>
 
       ${k ? `<div class="section-title"><h2>📍 Gymnasium & BMS im Kanton ${k.name}</h2></div>
-      <div class="card">
+      ${gesperrt(`<div class="card">
         <p><b>${esc(k.kurz)}</b></p>
         ${k.details.length ? `<ul>${k.details.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
         <p><b>BMS (Berufsmatur während der Lehre):</b> ${esc(k.bms || "Je nach Kanton prüfungsfrei mit guten Noten der Oberstufe oder über eine Aufnahmeprüfung an der Berufsmaturitätsschule. Frag bei deiner BMS bzw. beim Lehrbetrieb nach.")}</p>
         <p class="small muted">Stand gemäss kantonalen Angaben (IDES/EDK). Regeln und Termine ändern sich – prüfe die aktuellen Infos: <a href="${k.link}" target="_blank" rel="noopener">${k.link.replace("https://", "")}</a></p>
-      </div>` : ""}
+      </div>`, "Aufnahmebedingungen freischalten")}` : ""}
 
       <div class="section-title"><h2>💡 Deine Interessen</h2></div>
-      <div class="cards2">
+      ${gesperrt(`<div class="cards2">
         <div class="card ibars">${dimsSorted.slice(0, 7).map((x) => `<div class="ib"><span class="e">${window.NM_DIMS[x.d].emoji}</span><span>${window.NM_DIMS[x.d].label}</span><span class="t"><i style="width:${Math.max(3, Math.round((x.v + 0.8) / 1.8 * 100))}%"></i></span><b>${Math.max(0, Math.round((x.v + 0.8) / 1.8 * 100))}</b></div>`).join("")}</div>
         <div class="card">
           ${staerkenTop.length ? `<h3>💪 Deine Stärken</h3><div class="chips" style="margin-bottom:16px">${staerkenTop.map((s) => `<span class="chip sm on">${s.emoji} ${s.label}</span>`).join("")}</div>` : ""}
@@ -581,32 +593,35 @@
           ${schw.length ? `<h3>🙃 Liegt dir weniger</h3><div class="chips">${schw.map((s) => `<span class="chip sm">${s.emoji} ${s.label}</span>`).join("")}</div>` : ""}
           ${w.empfehlung === "gym" && studium.length ? `<h3 style="margin-top:16px">🎓 Studienrichtungen, die zu dir passen könnten</h3><ul class="small">${studium.map((s) => `<li>${s}</li>`).join("")}</ul>` : ""}
         </div>
-      </div>
+      </div>`, "Interessenprofil freischalten")}
 
       <div class="section-title"><h2>🏆 Deine Top-Berufsfelder</h2></div>
-      <div class="field-cards">${felder.map((f, i) => `<button class="field-card" ${bg(feld(f).img)} data-action="nav" data-href="#/berufe?feld=${f}">
-        <span class="rank">#${i + 1}</span><div class="in"><h3 style="margin:0">${feld(f).emoji} ${feld(f).label}</h3><span class="small">${window.NM_BERUFE.filter((b) => b.feld === f).length} Berufe ansehen ›</span></div></button>`).join("")}</div>
+      ${gesperrt(`<div class="field-cards">${felder.map((f, i) => `<button class="field-card" ${bg(feld(f).img)} data-action="nav" data-href="#/berufe?feld=${f}">
+        <span class="rank">#${i + 1}</span><div class="in"><h3 style="margin:0">${feld(f).emoji} ${feld(f).label}</h3><span class="small">${window.NM_BERUFE.filter((b) => b.feld === f).length} Berufe ansehen ›</span></div></button>`).join("")}</div>`, "Top-Berufsfelder freischalten")}
 
       <div class="section-title"><h2>✨ Berufe, die zu dir passen</h2><span class="muted">${w.empfehlung === "gym" ? "Auch mit Gymnasium spannend – z. B. zum Schnuppern." : "Tippe für Details und Links."}</span></div>
-      <div class="grid-cards">${top.map((x) => jobCard(x.b, x.pct, p)).join("")}</div>
+      ${voll() ? `<div class="grid-cards">${top.map((x) => jobCard(x.b, x.pct, p)).join("")}</div>`
+        : `<div class="grid-cards">${top.slice(0, 3).map((x) => jobCard(x.b, x.pct, p)).join("")}</div>
+      ${top.length > 3 ? `<div style="margin-top:16px">${gesperrt(`<div class="grid-cards">${top.slice(3).map((x) => jobCard(x.b, x.pct, p)).join("")}</div>`, `Alle ${top.length} passenden Berufe freischalten`)}</div>` : ""}`}
 
       ${favs.length ? `<div class="section-title"><h2>❤️ Meine Favoriten</h2></div>
       <div class="grid-cards">${favs.map((b) => { const m = liste.find((x) => x.b.id === b.id); return jobCard(b, m && m.pct, p); }).join("")}</div>` : ""}
 
       <div class="section-title"><h2>🚀 Deine nächsten Schritte</h2></div>
-      <div class="card"><ol class="timeline">${naechsteSchritte(p, w, top).map((s) => `<li><b>${s.t}</b><span class="muted">${s.d}</span></li>`).join("")}</ol></div>
+      ${gesperrt(`<div class="card"><ol class="timeline">${naechsteSchritte(p, w, top).map((s) => `<li><b>${s.t}</b><span class="muted">${s.d}</span></li>`).join("")}</ol></div>`, "Nächste Schritte freischalten")}
 
       <div class="section-title"><h2>🗨️ Fürs Gespräch mit Eltern & Berufsberatung</h2></div>
-      <div class="cards2">
+      ${gesperrt(`<div class="cards2">
         <div class="card"><ul class="qlist">${gespraechsfragen(p, w).map((q) => `<li>${q}</li>`).join("")}</ul></div>
         <div class="card"><h3>📝 Meine Gedanken & Fragen</h3>
           <textarea class="input" data-input="text" data-k="notizen" placeholder="Was überrascht dich? Was möchtest du noch klären?">${esc(p.notizen || "")}</textarea></div>
-      </div>
+      </div>`, "Gesprächsfragen & Notizen freischalten")}
 
       <p class="disclaimer" style="margin-top:24px">ℹ️ Next Move ist eine Orientierungshilfe, kein Test mit «richtig» oder «falsch». Die Auswertung zeigt Tendenzen aus deinen Antworten. Entscheide gemeinsam mit deinen Eltern, deiner Lehrperson und der Berufsberatung (BIZ) – und probiere Berufe beim Schnuppern aus. Berufsdaten: SBFI-Berufsverzeichnis.</p>
 
       <div class="toolbar">
-        <button class="btn grad big" data-action="drucken">🖨️ Drucken / als PDF sichern</button>
+        ${voll() ? `<button class="btn grad big" data-action="drucken">🖨️ Drucken / als PDF sichern</button>`
+          : `<button class="btn grad big" data-action="lizenz">🔒 Drucken / PDF – mit Lizenz</button>`}
         <a class="btn soft" href="#/home">✏️ Antworten ändern</a>
         <button class="btn ghost" data-action="neustart">↺ Nochmals neu starten</button>
       </div>
@@ -666,8 +681,9 @@
 
   function viewBerufe(p, params) {
     if (params.has("feld")) filter.feld = params.get("feld");
-    if (params.has("fav")) filter.fav = true;
-    const hatProfil = p && (p.done || {}).interessen;
+    if (params.has("fav") && voll()) filter.fav = true;
+    // Match-% und Sortierung würden die ganze Rangliste zeigen – nur mit Lizenz
+    const hatProfil = p && (p.done || {}).interessen && voll();
     if (filter.sort === null) filter.sort = hatProfil ? "match" : "az";
     return `${topbar(p)}
     <main class="wrap">
@@ -675,7 +691,7 @@
       <div class="searchbar">
         <div class="search"><span class="e">🔎</span><input class="input" id="suche" placeholder="Beruf suchen, z. B. Informatik, Koch, Tiere …" value="${esc(filter.q)}" autocomplete="off"></div>
         <div class="hscroll">
-          ${p ? `<button class="chip sm ${filter.fav ? "on" : ""}" data-action="filter" data-k="fav">❤️ Favoriten</button>` : ""}
+          ${p && voll() ? `<button class="chip sm ${filter.fav ? "on" : ""}" data-action="filter" data-k="fav">❤️ Favoriten</button>` : ""}
           <button class="chip sm ${filter.abschluss === "EFZ" ? "on" : ""}" data-action="filter" data-k="abschluss" data-v="EFZ">EFZ (3–4 J.)</button>
           <button class="chip sm ${filter.abschluss === "EBA" ? "on" : ""}" data-action="filter" data-k="abschluss" data-v="EBA">EBA (2 J.)</button>
           ${hatProfil ? `<button class="chip sm ${filter.sort === "match" ? "on" : ""}" data-action="filter" data-k="sort" data-v="match">✨ Passt am besten</button><button class="chip sm ${filter.sort === "az" ? "on" : ""}" data-action="filter" data-k="sort" data-v="az">A–Z</button>` : ""}
@@ -689,7 +705,7 @@
     </main>`;
   }
   function berufListe(p) {
-    const hatProfil = p && (p.done || {}).interessen;
+    const hatProfil = p && (p.done || {}).interessen && voll();
     const matches = hatProfil ? Object.fromEntries(E.rangliste(p).map((x) => [x.b.id, x.pct])) : {};
     const roh = filter.q.trim().toLowerCase();
     const q = roh.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -713,12 +729,15 @@
     if (!b) return;
     const p = profile();
     const f = feld(b.feld);
-    const m = p && (p.done || {}).interessen ? E.match(p, b) : null;
+    // Testversion: Match nur für die Top 3 der Auswertung
+    const zeigeMatch = p && (p.done || {}).interessen &&
+      (voll() || topBerufe(E.rangliste(p)).slice(0, 3).some((x) => x.b.id === b.id));
+    const m = zeigeMatch ? E.match(p, b) : null;
     const fav = p && (p.favoriten || []).includes(b.id);
     const namen = b.m === b.w ? b.m : `${b.w} / ${b.m}`;
     showOverlay(`<div class="sheet" role="dialog" aria-label="${esc(b.name)}">
       <div class="sheet-hero" ${bg(b.img)}>
-        ${p ? `<button class="iconbtn sheet-fav" data-action="fav" data-id="${b.id}" aria-label="Favorit">${fav ? "❤️" : "🤍"}</button>` : ""}
+        ${p && voll() ? `<button class="iconbtn sheet-fav" data-action="fav" data-id="${b.id}" aria-label="Favorit">${fav ? "❤️" : "🤍"}</button>` : ""}
         <button class="iconbtn sheet-close" data-action="schliessen" aria-label="Schliessen">✕</button>
         <div class="in"><span class="pill light">${f.emoji} ${f.label}</span><h2>${esc(b.name)} ${b.abschluss}</h2></div>
       </div>
@@ -752,7 +771,11 @@
         <p>Next Move ersetzt keine Berufsberatung. Es ist ein Gesprächsanstoss.</p></div>
       <div class="card"><h3>🔒 Datenschutz</h3>
         <p>Alle Antworten werden ausschliesslich lokal im Browser dieses Geräts gespeichert (localStorage). Es gibt kein Konto, keinen Server und keine Weitergabe von Daten. Wer das Gerät teilt, kann Profile über das Profilmenü löschen. Profile können als Datei exportiert und auf einem anderen Gerät importiert werden.</p>
-        <div class="row"><button class="btn soft sm" data-action="export">⬇️ Profile exportieren</button><button class="btn soft sm" data-action="import">⬆️ Profile importieren</button><input type="file" id="importFile" accept="application/json" class="hidden"></div></div>
+        ${voll() ? `<div class="row"><button class="btn soft sm" data-action="export">⬇️ Profile exportieren</button><button class="btn soft sm" data-action="import">⬆️ Profile importieren</button><input type="file" id="importFile" accept="application/json" class="hidden"></div>`
+          : `<div class="row"><button class="btn soft sm" data-action="lizenz">🔒 Export & Import – mit Lizenz</button></div>`}</div>
+      <div class="card"><h3>🔑 Lizenz</h3>
+        ${lizenzStatus()}
+        <div class="row"><button class="btn soft sm" data-action="lizenz">${voll() ? "Lizenz anzeigen" : "Lizenz eingeben"}</button></div></div>
       <div class="card"><h3>Wie entsteht die Auswertung?</h3>
         <ul>
           <li><b>Weg-Empfehlung:</b> 11 Fragen zu Lernfreude, Studienwunsch, Praxisnähe und Motivation ergeben die Neigung «Schule ↔ Praxis». Zusammen mit Notenschnitt, Leistungsniveau, kantonalem Richtwert und Einschätzung der Lehrperson entsteht die Empfehlung Gymnasium, Lehre mit BMS oder Lehre (inkl. Hinweisen auf FMS und EBA).</li>
@@ -884,10 +907,75 @@
         <button class="btn soft" data-action="schritt" data-id="ueber">✏️ Name & Angaben ändern</button>
         <button class="btn soft" data-action="wechseln">👥 Profil wechseln / neues Profil</button>
         <button class="btn soft" data-action="nav" data-href="#/info">ℹ️ Infos & Datenschutz</button>
+        <button class="btn soft" data-action="lizenz">🔑 ${voll() ? esc(L.label()) : "Lizenz eingeben"}</button>
         <button class="btn soft" data-action="updatecheck">🔄 Auf Update prüfen</button>
         <button class="btn danger" data-action="loeschen">🗑️ Mein Profil löschen</button>
         <button class="btn ghost" data-action="schliessen">Schliessen</button>
       </div></div>`);
+  }
+
+  // ---------- Lizenz ----------
+  function lizenzStatus() {
+    const i = L.info();
+    if (voll()) {
+      return `<p>✅ <b>${esc(L.label())}</b>${i.name ? ` für <b>${esc(i.name)}</b>` : ""} – alles freigeschaltet.<br>
+        <span class="muted small">${i.bis ? `Gültig bis ${L.datum(i.bis)}` : "Unbefristet gültig"}${i.id ? ` · Lizenz-Nr. ${esc(i.id)}` : ""}</span></p>`;
+    }
+    return `<p>Du nutzt die <b>Testversion</b>. Sie zeigt die Weg-Empfehlung und die Top 3 Berufe. Mit einer Lizenz für Eltern, Klassen oder Schulen ist alles freigeschaltet.</p>
+      ${L.hinweis() ? `<p class="lizenz-fehler">${esc(L.hinweis())}</p>` : ""}`;
+  }
+  function bestellHinweis() {
+    const k = L.KONTAKT;
+    if (!k) return "";
+    const href = k.includes("@") ? `mailto:${k}?subject=${encodeURIComponent("Lizenz Next Move")}` : k;
+    return `<p class="small muted center" style="margin-top:14px">Lizenz bestellen: <a href="${esc(href)}" target="_blank" rel="noopener">${esc(k)}</a></p>`;
+  }
+  function lizenzDialog(grund) {
+    if (voll()) {
+      showOverlay(`<div class="celebrate lizenz-dialog">
+        <div class="badge">🔑</div>
+        <h2>Lizenz aktiv</h2>
+        ${lizenzStatus()}
+        <div class="btns">
+          <button class="btn grad big" data-action="schliessen">Schliessen</button>
+          <button class="btn ghost" data-action="lizenzentfernen">Lizenz von diesem Gerät entfernen</button>
+        </div></div>`);
+      return;
+    }
+    showOverlay(`<div class="celebrate lizenz-dialog">
+      <div class="badge">🔑</div>
+      <h2>Next Move freischalten</h2>
+      ${grund ? `<p class="muted">${esc(grund)}</p>` : ""}
+      <p style="text-align:left;margin-bottom:6px">Mit einer Lizenz bekommst du:</p>
+      <ul class="lizenz-liste">
+        <li>🧭 Kompass und Begründung der Empfehlung</li>
+        <li>📍 Aufnahmebedingungen deines Kantons</li>
+        <li>💡 Interessenprofil und Top-Berufsfelder</li>
+        <li>✨ Alle passenden Berufe mit Match-%</li>
+        <li>🚀 Nächste Schritte und Gesprächsfragen</li>
+        <li>🖨️ Drucken und PDF</li>
+        <li>❤️ Favoriten, mehrere Profile, Export</li>
+      </ul>
+      ${L.hinweis() ? `<p class="lizenz-fehler">${esc(L.hinweis())}</p>` : ""}
+      <textarea class="input lizenz-code" id="lizenzCode" placeholder="Lizenzcode einfügen (beginnt mit NM1-)" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+      <p class="lizenz-fehler" id="lizenzFehler" role="alert"></p>
+      <div class="btns">
+        <button class="btn grad big" data-action="lizenzaktivieren">Freischalten</button>
+        <button class="btn ghost" data-action="schliessen">Später</button>
+      </div>
+      ${bestellHinweis()}
+    </div>`);
+  }
+  function lizenzAktiv(r) {
+    closeOverlay();
+    render();
+    confetti();
+    toast(`${L.label()} aktiv – alles freigeschaltet 🎉`);
+  }
+  async function lizenzAusLink(code) {
+    const r = await L.aktiviere(code);
+    if (r.ok) lizenzAktiv(r);
+    else lizenzDialog(r.grund);
   }
 
   // ---------- Router ----------
@@ -898,6 +986,15 @@
     const parts = path.split("/").filter(Boolean);
     const params = new URLSearchParams(query || "");
     const p = profile();
+    document.body.classList.toggle("testmodus", !voll());
+    // Lizenz-Link: …#/lizenz?c=NM1-… (bleibt im Browser, wird nie an einen Server gesendet)
+    if (parts[0] === "lizenz") {
+      const code = params.get("c");
+      history.replaceState(null, "", location.pathname + location.search + (p && p.name ? "#/home" : "#/start"));
+      render();
+      if (code) lizenzAusLink(code); else lizenzDialog();
+      return;
+    }
     const route = parts.join("/");
     const sameRoute = route === lastRoute;
     if (parts[0] === "berufe" && !sameRoute) filter = { q: "", feld: null, abschluss: null, fav: false, sort: null };
@@ -921,7 +1018,31 @@
 
   // ---------- Aktionen ----------
   const ACTIONS = {
-    neu() { neuesProfil(); go("#/schritt/ueber/0"); },
+    neu() {
+      const leer = state.profiles.some((x) => !x.name);
+      if (!leer && benannteProfile().length >= L.maxProfile()) {
+        lizenzDialog(voll()
+          ? `Mit der ${L.label()} sind auf diesem Gerät bis zu ${L.maxProfile()} Profile möglich.`
+          : "In der Testversion ist ein Profil pro Gerät möglich. Für weitere Profile brauchst du eine Lizenz.");
+        return;
+      }
+      neuesProfil(); go("#/schritt/ueber/0");
+    },
+    lizenz() { lizenzDialog(); },
+    async lizenzaktivieren() {
+      const eingabe = document.getElementById("lizenzCode");
+      const out = document.getElementById("lizenzFehler");
+      if (!eingabe || !eingabe.value.trim()) { if (out) out.textContent = "Bitte füge zuerst deinen Lizenzcode ein."; return; }
+      const r = await L.aktiviere(eingabe.value);
+      if (r.ok) lizenzAktiv(r);
+      else if (out) out.textContent = r.grund;
+    },
+    lizenzentfernen() {
+      if (!confirm("Lizenz von diesem Gerät entfernen? Next Move läuft danach wieder als Testversion. Die Antworten bleiben erhalten.")) return;
+      L.entfernen();
+      render();
+      toast("Lizenz entfernt – Testversion aktiv");
+    },
     waehle(el) { state.activeId = el.dataset.id; save(); go("#/home"); },
     nav(el) { go(el.dataset.href); },
     schritt(el) {
@@ -1024,12 +1145,14 @@
       go("#/schritt/schule/0");
     },
     drucken() {
+      if (!voll()) { lizenzDialog(); return; }
       // In der installierten App (Home-Bildschirm) ignoriert iOS/iPadOS window.print() – dort PDF selbst erzeugen
       if (navigator.standalone === true) pdfErstellen();
       else window.print();
     },
     pdfteilen() { pdfTeilen(); },
     export() {
+      if (!voll()) { lizenzDialog(); return; }
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
@@ -1067,10 +1190,14 @@
     r.onload = () => {
       try {
         const data = JSON.parse(r.result);
-        const neu = (data.profiles || []).filter((x) => x.id && !state.profiles.some((p) => p.id === x.id));
+        const alle = (data.profiles || []).filter((x) => x.id && !state.profiles.some((p) => p.id === x.id));
+        const platz = Math.max(0, L.maxProfile() - benannteProfile().length);
+        const neu = alle.slice(0, platz);
         state.profiles.push(...neu);
         save();
-        toast(`${neu.length} Profil(e) importiert`);
+        toast(neu.length < alle.length
+          ? `${neu.length} von ${alle.length} Profil(en) importiert – mehr erlaubt die Lizenz auf diesem Gerät nicht.`
+          : `${neu.length} Profil(e) importiert`);
       } catch (err) {
         toast("Diese Datei konnte nicht gelesen werden.");
       }
@@ -1087,7 +1214,7 @@
     }
   });
   window.addEventListener("hashchange", render);
-  render();
+  L.init().catch(() => {}).then(render);
 
   if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});
