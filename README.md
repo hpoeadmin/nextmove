@@ -45,6 +45,10 @@ sw.js                   Service Worker (generiert)
 
 ## Daten pflegen
 
+**Jährliche Aktualisierung (empfohlen im März/April):** Berufe und Kantone prüfen, dann in `js/app.js`
+`AUSGABE` (z. B. `"2027/28"`) und `DATENSTAND` anpassen. Die Ausgabe erscheint auf der Startseite, in der
+Fusszeile, auf der Infoseite und auf jedem Ausdruck bzw. PDF.
+
 - **Berufe:** Anreicherung (Berufsfeld, Niveau, Interessen, Beschreibung) in `tools/build_berufe.py` bearbeiten,
   dann `python3 tools/build_berufe.py` ausführen. Die SBFI-Rohdaten liegen in `tools/sbfi_grundbildungen.json`
   (Stand Oktober 2026).

@@ -92,6 +92,9 @@
   const feld = (id) => window.NM_FELDER[id];
   const beruf = (id) => window.NM_BERUFE.find((b) => b.id === id);
   const COPYRIGHT = `© ${new Date().getFullYear()} Hans Peter Oeschger`;
+  // Ausgabe und Datenstand – bei der jährlichen Aktualisierung (Berufe, Kantone) hier anpassen
+  const AUSGABE = "2026/27";
+  const DATENSTAND = { berufe: "Oktober 2026", kantone: "Mai 2024, ergänzt" };
   function toast(msg) {
     const t = document.createElement("div");
     t.className = "toast";
@@ -145,7 +148,7 @@
     return `
     <section class="start" ${bg("hero-freunde")}>
       <div class="wrap">
-        <div class="brandline"><div class="logo-mark">➜</div><b style="font-size:22px">Next Move</b></div>
+        <div class="brandline"><div class="logo-mark">➜</div><b style="font-size:22px">Next Move</b><span class="ausgabe">Ausgabe ${AUSGABE}</span></div>
         <h1>Dein nächster Schritt.</h1>
         <p class="tag">Gymnasium oder Berufslehre? Finde heraus, was zu dir passt – mit Fragen zu deinen Interessen, Stärken und Träumen. Und entdecke über 240 Lehrberufe der Schweiz.</p>
         <button class="btn big grad" data-action="neu">Los geht's ✨</button>
@@ -218,7 +221,7 @@
           : `<button class="cta-card" data-action="lizenz"><span class="ico">❤️</span><span><h3>Meine Favoriten 🔒</h3><p>Berufe merken kannst du mit einer Lizenz.</p></span></button>`}
         <button class="cta-card" data-action="nav" data-href="#/auswertung" ${v.kern ? "" : "disabled style='opacity:.6'"}><span class="ico">🏁</span><span><h3>Auswertung</h3><p>${v.kern ? "Dein Weg, deine Top-Berufe und nächste Schritte." : "Wird nach den Etappen 1, 2, 3 und 8 freigeschaltet."}</p></span></button>
       </div>
-      <footer class="foot">Next Move · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
+      <footer class="foot">Next Move · Ausgabe ${AUSGABE} · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
     </main>`;
   }
 
@@ -534,7 +537,7 @@
 
     return `${topbar(p)}
     <main class="wrap" id="auswertung">
-      <div class="print-head"><b>➜ Next Move – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}${voll() && L.info().name ? " · " + esc(L.info().name) : ""}</span></div>
+      <div class="print-head"><b>➜ Next Move ${AUSGABE} – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}${voll() && L.info().name ? " · " + esc(L.info().name) : ""}</span></div>
       ${voll() ? "" : `<div class="testhinweis no-print"><span>🔑 <b>Testversion:</b> Du siehst deine Weg-Empfehlung und deine Top 3 Berufe. Mit einer Lizenz bekommst du die ganze Auswertung zum Drucken.</span><button class="btn grad sm" data-action="lizenz">Freischalten</button></div>`}
       ${v.pct < 100 ? `<div class="banner no-print">Tipp: Du hast ${v.total - v.erledigt} Etappe(n) noch nicht gemacht. Mit allen Antworten wird deine Auswertung genauer. <a href="#/home">Zu den Etappen</a></div>` : ""}
 
@@ -783,12 +786,13 @@
         </ul></div>
       <div class="card"><h3>Quellen</h3>
         <ul>
-          <li>Berufe, Lehrdauer, Fachrichtungen: <a href="https://www.becc.admin.ch/becc/public/bvz/beruf/grundbildungen" target="_blank" rel="noopener">SBFI-Berufsverzeichnis, berufliche Grundbildungen</a> (Stand Oktober 2026). Kurzbeschreibungen und Interessenprofile: redaktionell für Next Move erstellt.</li>
-          <li>Aufnahmeverfahren Gymnasium: IDES/EDK-Dossier «Übertritt in allgemeinbildende Schulen der Sekundarstufe II» (kantonale Angaben, Mai 2024), ergänzt um bekannte Änderungen. Bitte aktuelle Angaben beim Kanton prüfen.</li>
+          <li>Berufe, Lehrdauer, Fachrichtungen: <a href="https://www.becc.admin.ch/becc/public/bvz/beruf/grundbildungen" target="_blank" rel="noopener">SBFI-Berufsverzeichnis, berufliche Grundbildungen</a> (Stand ${DATENSTAND.berufe}). Kurzbeschreibungen und Interessenprofile: redaktionell für Next Move erstellt.</li>
+          <li>Aufnahmeverfahren Gymnasium: IDES/EDK-Dossier «Übertritt in allgemeinbildende Schulen der Sekundarstufe II» (kantonale Angaben, Stand ${DATENSTAND.kantone}). Bitte aktuelle Angaben beim Kanton prüfen.</li>
           <li>Weiterführende Infos: <a href="${LINKS.sieben}" target="_blank" rel="noopener">berufsberatung.ch – In 7 Schritten zur Berufswahl</a>, <a href="${LINKS.mittelschulen}" target="_blank" rel="noopener">Mittelschulen und Maturitäten</a>.</li>
           <li>Fotos: Unsplash (Unsplash-Lizenz).</li>
         </ul></div>
-      <div class="card"><h3>🔄 App aktualisieren</h3>
+      <div class="card"><h3>🔄 Version & Aktualisierung</h3>
+        <p><b>Next Move, Ausgabe ${AUSGABE}</b><br><span class="muted small">Berufe: Stand ${DATENSTAND.berufe} · Aufnahmeregeln der Kantone: Stand ${DATENSTAND.kantone}</span></p>
         <p>Next Move funktioniert auch offline. Neue Versionen werden automatisch geladen, sobald das Gerät online ist. Hier kannst du sofort nachsehen.</p>
         <div class="row"><button class="btn soft sm" data-action="updatecheck">🔄 Auf Update prüfen</button></div></div>
       <footer class="foot"><a href="${p ? "#/home" : "#/start"}">‹ Zurück</a><div class="copy">${COPYRIGHT} · Alle Rechte vorbehalten</div></footer>
@@ -843,7 +847,7 @@
     busy.textContent = "PDF wird erstellt …";
     document.body.appendChild(busy);
     try {
-      const blob = await window.NM_PDF.erstelle(root, `Next Move – Auswertung von ${p.name}`);
+      const blob = await window.NM_PDF.erstelle(root, `Next Move ${AUSGABE} – Auswertung von ${p.name}`);
       const name = `Next-Move-Auswertung-${(p.name || "Ich").replace(/[^\wäöüÄÖÜ-]+/g, "-")}.pdf`;
       pdfDatei = new File([blob], name, { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
