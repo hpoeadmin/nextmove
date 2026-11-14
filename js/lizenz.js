@@ -9,7 +9,7 @@
   // LIZENZ-SCHLUESSEL-ENDE
 
   // Kontakt für Lizenzbestellungen (z. B. E-Mail-Adresse). Leer = kein Bestell-Link.
-  const KONTAKT = "";
+  const KONTAKT = "hanspeter.oeschger@gmx.ch";
 
   const STUFEN = {
     E: { label: "Elternlizenz", profile: 3 },

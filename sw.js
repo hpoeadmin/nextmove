@@ -1,5 +1,5 @@
 // Automatisch erzeugt mit tools/build_assets.py – macht Next Move offline nutzbar.
-const CACHE = "nextmove-bdaa14fccc";
+const CACHE = "nextmove-3fb6694926";
 const FILES = [
   "./",
   "index.html",
