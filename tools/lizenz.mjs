@@ -8,8 +8,8 @@
 //
 //   node tools/lizenz.mjs neu --stufe schule --name "Schule Musterdorf" [--bis 2027-07-31] [--url https://…]
 //       Lizenzcode erzeugen. Stufen: eltern | klasse | schule.
-//       Ohne --bis: Eltern unbefristet, Klasse/Schule bis Ende Schuljahr (31. Juli).
-//       --bis unbefristet  → ohne Ablaufdatum.
+//       Ohne --bis: Eltern 12 Monate ab heute, Klasse/Schule bis Ende Schuljahr (31. Juli).
+//       Jede Lizenz hat ein Ablaufdatum (höchstens 2 Jahre).
 //       --url merkt sich die Adresse der App und gibt zusätzlich einen Freischalt-Link aus.
 //
 //   node tools/lizenz.mjs pruefen NM1-…      Code prüfen und anzeigen
@@ -55,6 +55,11 @@ function endeSchuljahr() {
   const jahr = d.getMonth() > 6 ? d.getFullYear() + 1 : d.getFullYear(); // ab August: nächstes Jahr
   return `${jahr}-07-31`;
 }
+function inEinemJahr() {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 1);
+  return d.toISOString().slice(0, 10);
+}
 function csv(v) { return /[",\n]/.test(v) ? `"${String(v).replace(/"/g, '""')}"` : String(v); }
 
 async function schluessel() {
@@ -84,24 +89,26 @@ async function neu(o) {
   if (!s) stop("--stufe eltern | klasse | schule angeben.");
   const name = typeof o.name === "string" ? o.name.trim() : "";
   if (!name) stop('--name angeben, z. B. --name "Schule Musterdorf" oder --name "Familie Muster".');
-  let bis = o.bis === "unbefristet" ? null : typeof o.bis === "string" ? o.bis : s === "E" ? null : endeSchuljahr();
-  if (bis && !/^\d{4}-\d{2}-\d{2}$/.test(bis)) stop("--bis im Format JJJJ-MM-TT angeben, z. B. 2027-07-31.");
+  const bis = typeof o.bis === "string" ? o.bis : s === "E" ? inEinemJahr() : endeSchuljahr();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(bis)) stop("--bis im Format JJJJ-MM-TT angeben, z. B. 2027-07-31.");
+  const max = new Date(); max.setFullYear(max.getFullYear() + 2);
+  if (bis > max.toISOString().slice(0, 10)) stop("Eine Lizenz gilt höchstens 2 Jahre. Bitte ein früheres --bis wählen.");
+  if (bis < new Date().toISOString().slice(0, 10)) stop("--bis liegt in der Vergangenheit.");
 
   const conf = config();
   if (typeof o.url === "string") { conf.url = o.url.replace(/[#?].*$/, ""); fs.writeFileSync(CONF, JSON.stringify(conf, null, 2)); }
 
   const id = Buffer.from(globalThis.crypto.getRandomValues(new Uint8Array(4))).toString("hex");
-  const daten = { s, n: name, i: id };
-  if (bis) daten.b = bis;
+  const daten = { s, n: name, i: id, b: bis };
   const teil = b64(new TextEncoder().encode(JSON.stringify(daten)));
   const key = await subtle.importKey("jwk", privatSchluessel(), ALG, false, ["sign"]);
   const sig = await subtle.sign(SIG, key, new TextEncoder().encode(teil));
   const code = `NM1-${teil}.${b64(sig)}`;
 
   if (!fs.existsSync(LOG)) fs.writeFileSync(LOG, "ausgestellt,nr,stufe,name,gueltig_bis,code\n");
-  fs.appendFileSync(LOG, [new Date().toISOString().slice(0, 10), id, LABEL[s], name, bis || "unbefristet", code].map(csv).join(",") + "\n");
+  fs.appendFileSync(LOG, [new Date().toISOString().slice(0, 10), id, LABEL[s], name, bis, code].map(csv).join(",") + "\n");
 
-  console.log(`${LABEL[s]} für «${name}» · Nr. ${id} · ${bis ? "gültig bis " + bis : "unbefristet"}\n`);
+  console.log(`${LABEL[s]} für «${name}» · Nr. ${id} · gültig bis ${bis}\n`);
   console.log("Code:\n" + code + "\n");
   if (conf.url) console.log("Freischalt-Link (antippen genügt):\n" + `${conf.url}#/lizenz?c=${code}` + "\n");
   console.log(`Notiert in ${LOG}`);

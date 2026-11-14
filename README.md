@@ -60,8 +60,8 @@ Weg-Empfehlung und die Top 3 Berufe. Kompass, Kantonsinfos, Interessen, Berufsfe
 nächste Schritte und Gesprächsfragen sind verschwommen. Drucken/PDF, Favoriten, Export/Import und Match-%
 im Berufe-Explorer sind gesperrt, und es gibt nur 1 Profil pro Gerät.
 
-Mit einem **Lizenzcode** ist alles freigeschaltet. Stufen: Eltern (bis 3 Profile, Standard: unbefristet),
-Klasse und Schule (unbegrenzt viele Profile, Standard: bis 31. Juli). Die Codes sind signiert (ECDSA P-256) und
+Mit einem **Lizenzcode** ist alles freigeschaltet. Stufen: Eltern (bis 3 Profile, 12 Monate ab Ausstellung),
+Klasse und Schule (unbegrenzt viele Profile, bis 31. Juli). Jede Lizenz hat ein Ablaufdatum (höchstens 2 Jahre). Die Codes sind signiert (ECDSA P-256) und
 werden offline im Browser geprüft. Es gibt keinen Server, und es werden keine Daten übermittelt.
 
 ```
