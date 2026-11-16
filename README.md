@@ -6,8 +6,9 @@ Web-App fürs Tablet, die Jugendlichen (ca. 14–16 Jahre) in der Schweiz hilft,
 ## Funktionen
 
 - **8 Etappen** (ca. 15 Min.): Über mich · Schule & Noten · Interessen (32 Swipe-Karten) · Stärken ·
-  Was liegt dir weniger? · Hobbys · Dies oder das (Arbeitswelt) · Schule oder Lehre? (11 Fragen)
+  Was liegt dir weniger? · Hobbys · Dies oder das (Arbeitswelt) · Schule oder Lehre? (14 Fragen)
 - **Auswertung**: Weg-Empfehlung (Gymnasium / Lehre mit BMS / Lehre EFZ, Hinweise zu FMS, EBA, BM2) mit Begründung,
+  «Gedanken zu deinem Weg» (Typ, Eindeutigkeit, Für und Wider, Denkanstösse),
   Kompass (Neigung Schule ↔ Praxis, schulische Voraussetzungen), kantonale Aufnahmebedingungen,
   Interessenprofil, Top-Berufsfelder, Top-Berufe mit Match-%, nächste Schritte, Gesprächsfragen, Notizfeld.
   Druck bzw. PDF für das Gespräch mit Eltern oder der Berufsberatung.
@@ -42,6 +43,18 @@ img/                    Fotos (Unsplash-Lizenz)
 tools/                  Generatoren und SBFI-Rohdaten
 sw.js                   Service Worker (generiert)
 ```
+
+## Version und Ausgabe
+
+Next Move hat eine **Versionsnummer** und eine **Ausgabe** (z. B. «Next Move 1.1 · Ausgabe 2026/27»). Beides steht in `js/app.js`:
+
+- `VERSION`: kleinere Anpassungen erhöhen die Zahl nach dem Punkt (1.1, 1.2 …), grössere Änderungen die Zahl davor (2.0, 2.1 …).
+- `NEUERUNGEN`: Bei jeder neuen Version oben einen Eintrag ergänzen. Er erscheint auf der Infoseite unter «Was ist neu».
+- `AUSGABE`: das Schuljahr, für das die Daten gelten (siehe unten).
+
+Version und Ausgabe erscheinen auf der Startseite, in der Fusszeile, auf der Infoseite und auf jedem Ausdruck bzw. PDF.
+Nach einem Update zeigt die App einmal einen Hinweis auf die neue Version. Jede veröffentlichte Version in git markieren:
+`git tag v1.1`.
 
 ## Daten pflegen
 

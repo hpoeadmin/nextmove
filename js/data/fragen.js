@@ -143,3 +143,30 @@ window.NM_LIKERT = [
   { v: 4, label: "Eher ja", emoji: "🙂" },
   { v: 5, label: "Voll!", emoji: "🤩" }
 ];
+
+// Ergänzende Fragen zum Entscheid Schule oder Lehre (Beweggründe, Gefühl, Zukunftsbild)
+window.NM_MOTIVE = [
+  { id: "interesse", label: "Mich interessieren die Schulfächer", emoji: "📚", eigen: true },
+  { id: "studium", label: "Ich will später studieren", emoji: "🎓", eigen: true },
+  { id: "eltern", label: "Meine Eltern wünschen es", emoji: "👨‍👩‍👧", fremd: "deine Eltern es wünschen" },
+  { id: "freunde", label: "Meine Freunde gehen auch", emoji: "👫", fremd: "deine Freunde auch gehen" },
+  { id: "ruf", label: "Es hat einen guten Ruf", emoji: "⭐", fremd: "das Gymnasium einen guten Ruf hat" },
+  { id: "aufschieben", label: "Ich weiss noch nicht, was ich werden will", emoji: "🤔" },
+  { id: "nicht", label: "Ich denke eigentlich nicht ans Gymnasium", emoji: "🙅" }
+];
+window.NM_SCHULGEFUEHL = [
+  { id: "freude", label: "Ich freue mich darauf", emoji: "😃" },
+  { id: "neutral", label: "Geht so, das wäre okay", emoji: "😐" },
+  { id: "muede", label: "Puh, eher anstrengend", emoji: "😮‍💨" }
+];
+window.NM_DRUCK = [
+  { id: "gut", label: "Kein Problem, das spornt mich an", emoji: "💪" },
+  { id: "geht", label: "Manchmal stressig, aber es geht", emoji: "🙂" },
+  { id: "schwer", label: "Das setzt mir ziemlich zu", emoji: "😟" }
+];
+window.NM_MIT20 = [
+  { id: "studium", label: "Ich studiere an einer Uni oder ETH", emoji: "🏛️" },
+  { id: "fh", label: "Ich arbeite im Beruf und bilde mich weiter (z. B. Berufsmatur, Fachhochschule)", emoji: "📈" },
+  { id: "beruf", label: "Ich arbeite im Beruf und verdiene mein eigenes Geld", emoji: "💼" },
+  { id: "offen", label: "Keine Ahnung – das ist noch weit weg", emoji: "🤷" }
+];

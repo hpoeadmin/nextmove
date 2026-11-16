@@ -46,6 +46,23 @@
     labor: "Chemie, Biologie, Biochemie, Medizin",
     sport: "Sportwissenschaften, Physiotherapie"
   };
+  // Fachhochschul-Studiengänge (nach Lehre mit Berufsmatur)
+  const FH = {
+    hand: "Architektur, Bauingenieurwesen, Holztechnik",
+    tech: "Elektrotechnik, Maschinentechnik, Systemtechnik",
+    fahrzeug: "Maschinentechnik, Automobiltechnik, Aviatik",
+    natur: "Umweltingenieurwesen, Landschaftsarchitektur, Agronomie",
+    tiere: "Agronomie, Biotechnologie",
+    essen: "Lebensmitteltechnologie, Hotel Management",
+    menschen: "Soziale Arbeit, Lehrperson (PH)",
+    gesund: "Pflege, Physiotherapie, Ernährung & Diätetik",
+    kreativ: "Design, Visuelle Kommunikation, Innenarchitektur",
+    digital: "Informatik, Wirtschaftsinformatik, Medieningenieurwesen",
+    buero: "Betriebsökonomie, Wirtschaftsrecht",
+    verkauf: "Betriebsökonomie, Kommunikation, Marketing",
+    labor: "Chemie, Biotechnologie, Life Sciences",
+    sport: "Physiotherapie, Sportmanagement"
+  };
 
   // ---------- Speicher ----------
   let storageOk = true;
@@ -93,14 +110,28 @@
   const beruf = (id) => window.NM_BERUFE.find((b) => b.id === id);
   const COPYRIGHT = `© ${new Date().getFullYear()} Hans Peter Oeschger`;
   // Ausgabe und Datenstand – bei der jährlichen Aktualisierung (Berufe, Kantone) hier anpassen
+  // Version: kleinere Anpassungen 1.1, 1.2 …, grössere Änderungen 2.0, 2.1 …
+  // Bei jeder neuen Version VERSION erhöhen und oben in NEUERUNGEN einen Eintrag ergänzen.
+  const VERSION = "1.1";
+  const NEUERUNGEN = [
+    { v: "1.1", datum: "November 2026", punkte: [
+      "Neu: «Gedanken zu deinem Weg» – Typ-Beschreibung, Für und Wider zu Gymnasium und Lehre, Denkanstösse",
+      "3 zusätzliche Fragen zu Beweggründen, Schulgefühl und Zukunftsbild, mit Platz für eigene Gedanken",
+      "Studienrichtungen jetzt auch für die Berufsmatur (Fachhochschule) und Weiterbildungen nach der Lehre"
+    ] },
+    { v: "1.0", datum: "November 2026", punkte: [
+      "Erste Ausgabe mit Testversion und Lizenzen für Eltern, Klassen und Schulen"
+    ] }
+  ];
   const AUSGABE = "2026/27";
+  const NAME_VOLL = `Next Move ${VERSION}`;
   const DATENSTAND = { berufe: "Oktober 2026", kantone: "Mai 2024, ergänzt" };
-  function toast(msg) {
+  function toast(msg, ms = 2200) {
     const t = document.createElement("div");
     t.className = "toast";
     t.textContent = msg;
     document.body.appendChild(t);
-    setTimeout(() => t.remove(), 2200);
+    setTimeout(() => t.remove(), ms);
   }
   // Teil der Auswertung, der in der Testversion verschwommen und gesperrt ist
   function gesperrt(inhalt, text) {
@@ -132,7 +163,7 @@
     { id: "schwaechen", title: "Was liegt dir weniger?", emoji: "🙃", img: "bms-lernen", desc: "Ehrlich sein lohnt sich", dauer: "1 Min.", screens: ["schwaechen"] },
     { id: "hobbys", title: "Hobbys & Freizeit", emoji: "🎸", img: "musik-instrumente", desc: "Was machst du gern?", dauer: "1 Min.", screens: ["hobbys"] },
     { id: "arbeitswelt", title: "Dies oder das?", emoji: "⚖️", img: "bau-team", desc: "Deine Wunsch-Arbeitswelt", dauer: "1 Min.", screens: window.NM_PRAEFERENZEN.map((x) => "praef:" + x.id) },
-    { id: "weg", title: "Schule oder Lehre?", emoji: "🧭", img: "berge-morgen", desc: "11 Fragen zu deinem Weg", dauer: "3 Min.", screens: window.NM_WEGFRAGEN.map((x) => "weg:" + x.id) }
+    { id: "weg", title: "Schule oder Lehre?", emoji: "🧭", img: "berge-morgen", desc: "14 Fragen zu deinem Weg", dauer: "4 Min.", screens: [...window.NM_WEGFRAGEN.map((x) => "weg:" + x.id), "motiv", "gefuehl", "zukunft"] }
   ];
   const LOB = [
     "Stark! 💥", "Super gemacht! 🙌", "Weiter so! 🚀", "Mega! ⭐", "Du bist on fire! 🔥", "Nice! 😎", "Wow, top! 🏆", "Läuft bei dir! 🎉"
@@ -148,7 +179,7 @@
     return `
     <section class="start" ${bg("hero-freunde")}>
       <div class="wrap">
-        <div class="brandline"><div class="logo-mark">➜</div><b style="font-size:22px">Next Move</b><span class="ausgabe">Ausgabe ${AUSGABE}</span></div>
+        <div class="brandline"><div class="logo-mark">➜</div><b style="font-size:22px">Next Move</b><span class="ausgabe">Version ${VERSION} · Ausgabe ${AUSGABE}</span></div>
         <h1>Dein nächster Schritt.</h1>
         <p class="tag">Gymnasium oder Berufslehre? Finde heraus, was zu dir passt – mit Fragen zu deinen Interessen, Stärken und Träumen. Und entdecke über 240 Lehrberufe der Schweiz.</p>
         <button class="btn big grad" data-action="neu">Los geht's ✨</button>
@@ -221,7 +252,7 @@
           : `<button class="cta-card" data-action="lizenz"><span class="ico">❤️</span><span><h3>Meine Favoriten 🔒</h3><p>Berufe merken kannst du mit einer Lizenz.</p></span></button>`}
         <button class="cta-card" data-action="nav" data-href="#/auswertung" ${v.kern ? "" : "disabled style='opacity:.6'"}><span class="ico">🏁</span><span><h3>Auswertung</h3><p>${v.kern ? "Dein Weg, deine Top-Berufe und nächste Schritte." : "Wird nach den Etappen 1, 2, 3 und 8 freigeschaltet."}</p></span></button>
       </div>
-      <footer class="foot">Next Move · Ausgabe ${AUSGABE} · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
+      <footer class="foot">${NAME_VOLL} · Ausgabe ${AUSGABE} · Orientierungshilfe für die Berufs- und Schulwahl in der Schweiz · <a href="#/info">Infos & Quellen</a> · <a href="#" data-action="updatecheck">Auf Update prüfen</a><div class="copy">${COPYRIGHT}</div></footer>
     </main>`;
   }
 
@@ -416,6 +447,26 @@
         <div class="likert">${window.NM_LIKERT.map((l) => `<button class="lk ${v === l.v ? "on" : ""}" data-action="weg" data-id="${id}" data-v="${l.v}"><span class="e">${l.emoji}</span>${l.label}</button>`).join("")}</div>`;
       },
       valid: (p, id) => !!(p.weg || {})[id]
+    },
+    motiv: {
+      html: (p) => `<div class="q-emoji">🤔</div><div class="q-title">Warum denkst du ans Gymnasium?</div>
+        <div class="q-sub">Wähle alles, was zutrifft. Ehrlich sein lohnt sich – es gibt keine falschen Antworten.</div>
+        <div class="choice-grid wide">${window.NM_MOTIVE.map((m) => `<button class="choice ${(p.motiv || []).includes(m.id) ? "on" : ""}" data-action="motiv" data-v="${m.id}"><span class="e">${m.emoji}</span>${m.label}</button>`).join("")}</div>`,
+      valid: (p) => (p.motiv || []).length > 0
+    },
+    gefuehl: {
+      html: (p) => `<div class="q-emoji">💭</div><div class="q-title">Wenn du an vier weitere Jahre Schule denkst …</div>
+        <div class="choice-grid wide" style="margin-bottom:28px">${window.NM_SCHULGEFUEHL.map((o) => `<button class="choice ${p.schulgefuehl === o.id ? "on" : ""}" data-action="set" data-k="schulgefuehl" data-v="${o.id}"><span class="e">${o.emoji}</span>${o.label}</button>`).join("")}</div>
+        <div class="q-sub" style="margin-bottom:12px">Und wie gehst du mit Prüfungen und Druck um?</div>
+        <div class="choice-grid wide">${window.NM_DRUCK.map((o) => `<button class="choice ${p.druck === o.id ? "on" : ""}" data-action="set" data-k="druck" data-v="${o.id}"><span class="e">${o.emoji}</span>${o.label}</button>`).join("")}</div>`,
+      valid: (p) => !!p.schulgefuehl && !!p.druck
+    },
+    zukunft: {
+      html: (p) => `<div class="q-emoji">🔭</div><div class="q-title">Stell dir vor, du bist 20. Wo siehst du dich am ehesten?</div>
+        <div class="choice-grid wide">${window.NM_MIT20.map((o) => `<button class="choice ${p.mit20 === o.id ? "on" : ""}" data-action="set" data-k="mit20" data-v="${o.id}"><span class="e">${o.emoji}</span>${o.label}</button>`).join("")}</div>
+        <div class="q-sub" style="margin:26px 0 10px">Was geht dir bei dieser Entscheidung durch den Kopf? <span class="small">(freiwillig – erscheint in deiner Auswertung)</span></div>
+        <textarea class="input" data-input="text" data-k="gedanken" maxlength="600" placeholder="z. B. Ich weiss nicht, ob ich vier Jahre Schule durchhalte … / Ich möchte unbedingt mit Tieren arbeiten …">${esc(p.gedanken || "")}</textarea>`,
+      valid: (p) => !!p.mit20
     }
   };
   function staerkenHtml(p, a, b) {
@@ -517,7 +568,10 @@
       bms: "Berufslehre mit Berufsmatur (BMS)",
       lehre: w.eba ? "Berufslehre (EFZ oder EBA)" : "Berufslehre EFZ"
     }[w.empfehlung];
-    const untertitel = {
+    const g = E.gedanken(p, w);
+    const untertitel = g.typ.id === "gymWunsch" && w.empfehlung !== "gym"
+      ? "Schule reizt dich, für das Gymnasium reichen die Noten aber noch nicht sicher. Eine Berufslehre – am besten mit Berufsmatur – ist ein starker Weg: Du lernst viel, verdienst Geld, und Fachhochschule und Uni bleiben offen."
+      : {
       gym: "Du lernst gern, denkst gern theoretisch und hast die schulischen Voraussetzungen. Das Gymnasium führt dich zur Matura – und damit an jede Uni und ETH.",
       bms: "Du willst praktisch arbeiten und trotzdem viel lernen. Mit der Berufsmatur machst du eine Lehre und hast danach den Weg an die Fachhochschule (und via Passerelle an die Uni) offen.",
       lehre: "Du willst anpacken, Neues im echten Arbeitsalltag lernen und eigenes Geld verdienen. Eine Berufslehre ist ein starker Start – und alle Wege bleiben offen."
@@ -533,11 +587,11 @@
     const staerkenTop = window.NM_STAERKEN.filter((s) => (p.staerken || {})[s.id] >= 4);
     const schw = window.NM_SCHWAECHEN.filter((s) => (p.schwaechen || []).includes(s.id));
     const hob = window.NM_HOBBYS.filter((h) => (p.hobbys || []).includes(h.id));
-    const studium = dimsSorted.slice(0, 3).filter((x) => x.v > 0.15).map((x) => STUDIUM[x.d]);
+    const topDims = dimsSorted.slice(0, 3).filter((x) => x.v > 0.15).map((x) => x.d);
 
     return `${topbar(p)}
     <main class="wrap" id="auswertung">
-      <div class="print-head"><b>➜ Next Move ${AUSGABE} – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}${voll() && L.info().name ? " · " + esc(L.info().name) : ""}</span></div>
+      <div class="print-head"><b>➜ ${NAME_VOLL} (Ausgabe ${AUSGABE}) – Auswertung von ${esc(p.name)}</b><span>${datum}${k ? " · Kanton " + k.name : ""}${voll() && L.info().name ? " · " + esc(L.info().name) : ""}</span></div>
       ${voll() ? "" : `<div class="testhinweis no-print"><span>🔑 <b>Testversion:</b> Du siehst deine Weg-Empfehlung und deine Top 3 Berufe. Mit einer Lizenz bekommst du die ganze Auswertung zum Drucken.</span><button class="btn grad sm" data-action="lizenz">Freischalten</button></div>`}
       ${v.pct < 100 ? `<div class="banner no-print">Tipp: Du hast ${v.total - v.erledigt} Etappe(n) noch nicht gemacht. Mit allen Antworten wird deine Auswertung genauer. <a href="#/home">Zu den Etappen</a></div>` : ""}
 
@@ -546,6 +600,8 @@
         <h1>${titel}</h1>
         <p>${untertitel}</p>
       </div></section>
+
+      ${gedankenHtml(p, w, g, topDims)}
 
       <div class="section-title"><h2>🧭 Dein Kompass</h2></div>
       ${gesperrt(`<div class="cards2">
@@ -594,7 +650,6 @@
           ${staerkenTop.length ? `<h3>💪 Deine Stärken</h3><div class="chips" style="margin-bottom:16px">${staerkenTop.map((s) => `<span class="chip sm on">${s.emoji} ${s.label}</span>`).join("")}</div>` : ""}
           ${hob.length || p.hobbyText ? `<h3>🎸 Hobbys</h3><div class="chips" style="margin-bottom:16px">${hob.map((h) => `<span class="chip sm">${h.emoji} ${h.label}</span>`).join("")}${p.hobbyText ? `<span class="chip sm">✍️ ${esc(p.hobbyText)}</span>` : ""}</div>` : ""}
           ${schw.length ? `<h3>🙃 Liegt dir weniger</h3><div class="chips">${schw.map((s) => `<span class="chip sm">${s.emoji} ${s.label}</span>`).join("")}</div>` : ""}
-          ${w.empfehlung === "gym" && studium.length ? `<h3 style="margin-top:16px">🎓 Studienrichtungen, die zu dir passen könnten</h3><ul class="small">${studium.map((s) => `<li>${s}</li>`).join("")}</ul>` : ""}
         </div>
       </div>`, "Interessenprofil freischalten")}
 
@@ -629,6 +684,38 @@
         <button class="btn ghost" data-action="neustart">↺ Nochmals neu starten</button>
       </div>
     </main>`;
+  }
+
+  // «Gedanken zu deinem Weg»: Typ, Klarheit, eigene Gedanken, Für und Wider, Denkanstösse
+  function gedankenHtml(p, w, g, topDims) {
+    const liste = (arr, e, leer) => arr.length ? `<ul class="reasons">${arr.map((t) => `<li><span class="e">${e}</span><span>${esc(t)}</span></li>`).join("")}</ul>` : `<p class="small muted">${leer}</p>`;
+    const seite = (titel, pro, contra) => `<div class="fuerwider"><h4>${titel}</h4>
+      <div class="fw-grid"><div><b class="small">Spricht dafür</b>${liste(pro, "👍", "Aus deinen Antworten spricht nichts klar dafür.")}</div><div><b class="small">Spricht dagegen</b>${liste(contra, "🤔", "Aus deinen Antworten spricht nichts klar dagegen.")}</div></div></div>`;
+    const richtungen = (map) => topDims.map((d) => `<li>${window.NM_DIMS[d].emoji} ${esc(map[d])}</li>`).join("");
+    const weiter = w.empfehlung === "gym"
+      ? (topDims.length ? `<h3 style="margin-top:20px">🎓 Studienrichtungen, die zu dir passen könnten</h3><ul class="small">${richtungen(STUDIUM)}</ul>` : "")
+      : w.empfehlung === "bms"
+        ? (topDims.length ? `<h3 style="margin-top:20px">🎓 Mit der Berufsmatur an die Fachhochschule, z. B.</h3><ul class="small">${richtungen(FH)}</ul>` : "")
+        : `<h3 style="margin-top:20px">📈 Nach der Lehre geht es weiter</h3><p class="small" style="margin:0">Berufsprüfung (eidg. Fachausweis), höhere Fachprüfung (z. B. Meister/in), höhere Fachschule (HF) – oder mit der Berufsmatur (BM2) an die Fachhochschule${topDims.length ? `, z. B. ${esc(FH[topDims[0]])}` : ""}.</p>`;
+    const nachholen = !g.ergaenzt && (p.done || {}).weg;
+    return `<div class="section-title"><h2>🧠 Gedanken zu deinem Weg</h2></div>
+      ${nachholen ? `<div class="banner no-print">Neu: 3 kurze Fragen zu deinen Beweggründen machen diesen Teil genauer. <a href="#/schritt/weg/${window.NM_WEGFRAGEN.length}">Jetzt ergänzen</a></div>` : ""}
+      <div class="card gedanken">
+        <div class="klarheit k${g.klarheit.stufe}"><span class="kl-badge">${g.klarheit.stufe ? "●".repeat(g.klarheit.stufe) + "○".repeat(3 - g.klarheit.stufe) : "…"} ${g.klarheit.label}</span><span class="small">${g.klarheit.text}</span></div>
+        <h3>${esc(g.typ.titel)}</h3>
+        <p style="margin-bottom:0">${esc(g.typ.text)}</p>
+        ${(p.gedanken || "").trim() ? `<blockquote class="eigene-gedanken"><b>💭 Deine Gedanken:</b> «${esc(p.gedanken.trim())}»</blockquote>` : ""}
+      </div>
+      <div style="margin-top:16px">${gesperrt(`<div class="cards2">
+        <div class="card"><h3>⚖️ Für und Wider</h3>
+          ${seite("🎓 Gymnasium", g.pro.gym, g.contra.gym)}
+          ${seite("🛠️ Berufslehre (mit oder ohne Berufsmatur)", g.pro.lehre, g.contra.lehre)}
+        </div>
+        <div class="card"><h3>💡 Darüber lohnt es sich nachzudenken</h3>
+          ${g.denkanstoesse.length ? `<ul class="reasons">${g.denkanstoesse.map((t) => `<li><span class="e">👉</span><span>${esc(t)}</span></li>`).join("")}</ul>` : `<p class="small muted">Deine Antworten passen gut zusammen – keine Widersprüche gefunden. Sprich trotzdem mit deinen Eltern und der Berufsberatung über deinen Weg.</p>`}
+          ${weiter}
+        </div>
+      </div>`, "Für und Wider & Denkanstösse freischalten")}</div>`;
   }
 
   function naechsteSchritte(p, w, top) {
@@ -782,6 +869,7 @@
       <div class="card"><h3>Wie entsteht die Auswertung?</h3>
         <ul>
           <li><b>Weg-Empfehlung:</b> 11 Fragen zu Lernfreude, Studienwunsch, Praxisnähe und Motivation ergeben die Neigung «Schule ↔ Praxis». Zusammen mit Notenschnitt, Leistungsniveau, kantonalem Richtwert und Einschätzung der Lehrperson entsteht die Empfehlung Gymnasium, Lehre mit BMS oder Lehre (inkl. Hinweisen auf FMS und EBA).</li>
+          <li><b>Gedanken zu deinem Weg:</b> 3 ergänzende Fragen (Beweggründe fürs Gymnasium, Gefühl zu Schule und Prüfungen, Zukunftsbild mit 20) fliessen leicht in die Neigung ein. Daraus entstehen eine Typ-Beschreibung (Wunsch im Vergleich zu den schulischen Voraussetzungen), eine Einschätzung, wie eindeutig das Ergebnis ist, ein Für und Wider zu beiden Wegen und Denkanstösse zu Widersprüchen in den Antworten.</li>
           <li><b>Berufs-Matching:</b> Jeder der ${window.NM_BERUFE.length} Berufe hat ein Interessenprofil, Merkmale (draussen, körperlich, Kundenkontakt, Genauigkeit, Arbeitszeiten, Höhe) und ein schulisches Anforderungsniveau. Diese werden mit Swipe-Antworten, Hobbys, Stärken, Präferenzen und «Was liegt dir weniger?» abgeglichen. Zu jedem Match werden die Gründe angezeigt.</li>
         </ul></div>
       <div class="card"><h3>Quellen</h3>
@@ -792,9 +880,11 @@
           <li>Fotos: Unsplash (Unsplash-Lizenz).</li>
         </ul></div>
       <div class="card"><h3>🔄 Version & Aktualisierung</h3>
-        <p><b>Next Move, Ausgabe ${AUSGABE}</b><br><span class="muted small">Berufe: Stand ${DATENSTAND.berufe} · Aufnahmeregeln der Kantone: Stand ${DATENSTAND.kantone}</span></p>
+        <p><b>${NAME_VOLL} · Ausgabe ${AUSGABE}</b><br><span class="muted small">Berufe: Stand ${DATENSTAND.berufe} · Aufnahmeregeln der Kantone: Stand ${DATENSTAND.kantone}</span></p>
         <p>Next Move funktioniert auch offline. Neue Versionen werden automatisch geladen, sobald das Gerät online ist. Hier kannst du sofort nachsehen.</p>
-        <div class="row"><button class="btn soft sm" data-action="updatecheck">🔄 Auf Update prüfen</button></div></div>
+        <div class="row"><button class="btn soft sm" data-action="updatecheck">🔄 Auf Update prüfen</button></div>
+        <h3 style="margin-top:20px">✨ Was ist neu</h3>
+        ${NEUERUNGEN.map((n) => `<p style="margin:12px 0 4px"><b>Version ${n.v}</b> <span class="muted small">· ${n.datum}</span></p><ul class="small" style="margin:0">${n.punkte.map((t) => `<li>${t}</li>`).join("")}</ul>`).join("")}</div>
       <footer class="foot"><a href="${p ? "#/home" : "#/start"}">‹ Zurück</a><div class="copy">${COPYRIGHT} · Alle Rechte vorbehalten</div></footer>
     </main>`;
   }
@@ -847,7 +937,7 @@
     busy.textContent = "PDF wird erstellt …";
     document.body.appendChild(busy);
     try {
-      const blob = await window.NM_PDF.erstelle(root, `Next Move ${AUSGABE} – Auswertung von ${p.name}`);
+      const blob = await window.NM_PDF.erstelle(root, `${NAME_VOLL} (Ausgabe ${AUSGABE}) – Auswertung von ${p.name}`);
       const name = `Next-Move-Auswertung-${(p.name || "Ich").replace(/[^\wäöüÄÖÜ-]+/g, "-")}.pdf`;
       pdfDatei = new File([blob], name, { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
@@ -1062,7 +1152,7 @@
       const k = el.dataset.k;
       const v = el.dataset.num ? Number(el.dataset.v) : el.dataset.v;
       update((p) => { p[k] = v; });
-      if (k === "kanton" || k === "avatar" || k === "alter" || k === "schuljahr" || k === "niveau" || k === "lehrer" || k === "eltern") {
+      if (k === "kanton" || k === "avatar" || k === "alter" || k === "schuljahr" || k === "niveau" || k === "lehrer" || k === "eltern" || k === "schulgefuehl" || k === "druck" || k === "mit20") {
         el.parentElement.querySelectorAll(".choice, .chip").forEach((c) => c.classList.toggle("on", c === el));
         refreshWeiter();
       }
@@ -1096,6 +1186,17 @@
       document.querySelectorAll(".lk").forEach((b) => b.classList.toggle("on", b === el));
       refreshWeiter();
       setTimeout(weiter, 380);
+    },
+    motiv(el) {
+      const v = el.dataset.v;
+      update((p) => {
+        const alt = p.motiv || [];
+        if (alt.includes(v)) p.motiv = alt.filter((x) => x !== v);
+        else p.motiv = v === "nicht" ? ["nicht"] : [...alt.filter((x) => x !== "nicht"), v];
+      });
+      const m = profile().motiv;
+      el.parentElement.querySelectorAll(".choice").forEach((c) => c.classList.toggle("on", m.includes(c.dataset.v)));
+      refreshWeiter();
     },
     karte(el) { karteAntwort(el.dataset.v); },
     kartezurueck() {
@@ -1143,7 +1244,7 @@
     neustart() {
       if (!confirm("Alle Antworten löschen und nochmals neu starten? Name, Kanton und Favoriten bleiben erhalten.")) return;
       update((p) => {
-        Object.assign(p, { karten: {}, staerken: {}, schwaechen: [], hobbys: [], hobbyText: "", praef: {}, weg: {}, lehrer: null, eltern: null, done: { ueber: true } });
+        Object.assign(p, { karten: {}, staerken: {}, schwaechen: [], hobbys: [], hobbyText: "", praef: {}, weg: {}, lehrer: null, eltern: null, motiv: [], schulgefuehl: null, druck: null, mit20: null, gedanken: "", done: { ueber: true } });
       });
       kartenStapel = [];
       go("#/schritt/schule/0");
@@ -1218,7 +1319,14 @@
     }
   });
   window.addEventListener("hashchange", render);
-  L.init().catch(() => {}).then(render);
+  L.init().catch(() => {}).then(render).then(() => {
+    // Nach einem Update einmal zeigen, dass eine neue Version läuft
+    try {
+      const vorher = localStorage.getItem("nextmove.version");
+      if (vorher && vorher !== VERSION) toast(`Next Move ist jetzt auf Version ${VERSION} – Neuerungen unter «Infos & Quellen».`, 6000);
+      localStorage.setItem("nextmove.version", VERSION);
+    } catch (e) { /* kein Speicher */ }
+  });
 
   if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});

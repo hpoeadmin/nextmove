@@ -390,6 +390,20 @@ input[type="range"]::-moz-range-thumb { width: 28px; height: 28px; border-radius
 .reasons li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
 .reasons li:last-child { border-bottom: 0; }
 .reasons li .e { flex-shrink: 0; }
+
+/* Gedanken zu deinem Weg */
+.gedanken h3 { margin-top: 14px; }
+.klarheit { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; border-radius: 14px; background: var(--grad-soft); }
+.kl-badge { font-weight: 800; white-space: nowrap; color: var(--brand); letter-spacing: 0.5px; }
+.klarheit.k1 .kl-badge { color: var(--coral); }
+.klarheit.k3 .kl-badge { color: var(--mint); }
+.eigene-gedanken { margin: 16px 0 0; padding: 12px 16px; border-left: 4px solid var(--brand); background: var(--bg); border-radius: 0 12px 12px 0; font-style: italic; }
+.eigene-gedanken b { font-style: normal; }
+.fuerwider { margin-top: 14px; }
+.fuerwider h4 { margin: 0 0 6px; font-size: 16px; }
+.fw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.fw-grid .reasons li { padding: 6px 0; font-size: 14px; }
+@media (max-width: 600px) { .fw-grid { grid-template-columns: 1fr; } }
 .ibars .ib { display: grid; grid-template-columns: 34px 180px 1fr 44px; gap: 10px; align-items: center; padding: 6px 0; }
 .ibars .ib .e { font-size: 22px; }
 .ibars .ib .t { height: 14px; border-radius: 999px; background: var(--line); overflow: hidden; }

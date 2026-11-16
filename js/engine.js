@@ -176,6 +176,9 @@
     const pr = p.praef || {};
     let neigung = G / Gmax - Lp / Lmax + (typeof pr.kopf === "number" ? pr.kopf * 0.08 : 0);
     if ((p.hobbys || []).includes("lesen")) neigung += 0.05;
+    // Ergänzende Fragen: nur leichter Einfluss, sie dienen vor allem der Begründung
+    neigung += { freude: 0.06, muede: -0.06 }[p.schulgefuehl] || 0;
+    neigung += { studium: 0.06, beruf: -0.06 }[p.mit20] || 0;
     const schulePct = Math.round(clamp(50 + neigung * 32, 5, 95));
 
     const k = kanton(p);
@@ -232,6 +235,137 @@
     return { empfehlung, alternative, eba, schulePct, gymReady, bmsReady, notenschnitt: s, richtwert, gruende, fms, kanton: k };
   }
 
+  // Gedanken zum Weg: Typ-Beschreibung, Klarheit, Für und Wider, Denkanstösse.
+  // Alles aus den vorhandenen Antworten abgeleitet, damit die Empfehlung nachvollziehbar wird.
+  const TYPEN = {
+    gymTyp: {
+      titel: "Kopf und Noten passen zusammen",
+      text: (x) => `Du lernst gern, willst Dinge verstehen und hast die schulischen Voraussetzungen dafür${x.schnitt}. Das Gymnasium passt gut zu dir: Es ist anspruchsvoll, bietet viele Fächer und führt mit der Matura an jede Uni und ETH. Wichtig ist, dass du die vier Jahre wirklich willst – nicht nur, weil es möglich ist. Ein Berufswunsch, den du schon kennst, kann dir zeigen, ob es sich lohnt.`
+    },
+    gymWunsch: {
+      titel: "Du willst weiter zur Schule – die Noten sind noch knapp",
+      text: (x) => `Schule und Theorie reizen dich, und du möchtest gern weiterlernen. Für das Gymnasium reichen deine Noten${x.schnitt} aber noch nicht sicher. Das heisst nicht, dass es unmöglich ist: Kläre, wie die Aufnahme ${x.kanton} funktioniert und ob sich eine gezielte Vorbereitung lohnt. Ein starker Plan B ist eine Lehre mit Berufsmatur – damit lernst du ebenfalls viel und kannst später an die Fachhochschule oder via Passerelle an die Uni.`
+    },
+    beides: {
+      titel: "Beide Wege stehen dir offen",
+      text: (x) => `Praxis und Schule reizen dich ungefähr gleich, und deine Noten${x.schnitt} lassen beides zu. Eine Lehre mit Berufsmatur verbindet beides: Du arbeitest im Betrieb und gehst gleichzeitig vertieft zur Schule. Entscheidend ist oft die Frage, ob dich schon ein Beruf richtig reizt. Wenn ja, spricht viel für die Lehre mit BMS. Wenn nicht, kann das Gymnasium dir mehr Zeit geben.`
+    },
+    mitteKnapp: {
+      titel: "Praxis mit offener Tür zur Weiterbildung",
+      text: (x) => `Du kannst dir Schule und Praxis beide vorstellen. Deine Noten${x.schnitt} sprechen eher für eine Berufslehre. Das ist ein starker Start: Du lernst im echten Arbeitsalltag, verdienst eigenes Geld – und kannst die Berufsmatur auch während oder nach der Lehre machen. Viele, die in der Oberstufe noch nicht so motiviert waren, blühen in der Lehre richtig auf.`
+    },
+    praxisPotenzial: {
+      titel: "Praktiker mit Schulpotenzial",
+      text: (x) => `Du hast gute Noten${x.schnitt} und würdest das Gymnasium wohl schaffen – aber dein Herz schlägt für die Praxis. Das ist kein Widerspruch. Eine Lehre mit Berufsmatur fordert dich schulisch und lässt dich gleichzeitig im Beruf arbeiten. Wähle einen anspruchsvollen Beruf, damit es dir nicht langweilig wird. Der Weg an die Fachhochschule und via Passerelle an die Uni bleibt offen.`
+    },
+    praxisTyp: {
+      titel: "Klarer Praxis-Typ",
+      text: (x) => `Du willst anpacken, etwas Sichtbares schaffen und im echten Arbeitsalltag lernen. Eine Berufslehre passt sehr gut zu dir. Deine Noten${x.schnitt} sind dafür eine gute Grundlage – entscheidend ist jetzt, den Beruf zu finden, der zu dir passt. Schnuppern ist der beste Weg dazu. Und denk daran: Nach der Lehre stehen dir viele Weiterbildungen offen.`
+    }
+  };
+  const PRO_EXTRA = {
+    freude: "Du freust dich auf weitere Jahre Schule.",
+    muede: "Vier weitere Jahre Schule fühlen sich für dich eher anstrengend an.",
+    druckGut: "Prüfungen spornen dich eher an.",
+    druckSchwer: "Prüfungsdruck setzt dir ziemlich zu.",
+    mitStudium: "Mit 20 siehst du dich an einer Uni oder ETH.",
+    mitFh: "Mit 20 siehst du dich im Beruf – mit Weiterbildung.",
+    mitBeruf: "Mit 20 siehst du dich im Beruf mit eigenem Lohn.",
+    kopf: "Du arbeitest lieber mit dem Kopf.",
+    hand: "Du arbeitest lieber mit den Händen."
+  };
+
+  function gedanken(p, w = weg(p)) {
+    const a = p.weg || {};
+    const s = w.notenschnitt, k = w.kanton;
+    const wunsch = w.schulePct >= 58 ? "schule" : w.schulePct >= 42 ? "mitte" : "praxis";
+    const gut = w.gymReady >= 60;
+    const typId = { schule: gut ? "gymTyp" : "gymWunsch", mitte: gut ? "beides" : "mitteKnapp", praxis: gut ? "praxisPotenzial" : "praxisTyp" }[wunsch];
+    const x = {
+      schnitt: s !== null ? ` (Schnitt ${s.toFixed(2)})` : "",
+      kanton: k ? "im Kanton " + k.name : "in deinem Kanton"
+    };
+    const typ = { id: typId, titel: TYPEN[typId].titel, text: TYPEN[typId].text(x) };
+
+    // Für und Wider: jede Antwort wird beiden Wegen zugeordnet
+    const pro = { gym: [], lehre: [] }, contra = { gym: [], lehre: [] };
+    const add = (weg, st, txt) => { if (!txt || !st) return; (st > 0 ? pro : contra)[weg].push({ st: Math.abs(st), txt }); };
+    window.NM_WEGFRAGEN.forEach((q) => {
+      const v = a[q.id];
+      if (!v || v === 3) return;
+      const c = v - 3, txt = WEG_GRUND[q.id][c > 0 ? 0 : 1];
+      add("gym", q.g * c, txt);
+      add("lehre", Math.max(q.l, 0) * c, txt); // Lernfreude spricht nicht gegen die Lehre (BMS)
+    });
+    if (a.w2 >= 4 || a.w11 >= 4) add("lehre", -3, "Du willst an die Uni – über die Lehre geht das nur mit Berufsmatur und Passerelle (rund ein Jahr länger).");
+    if (s !== null && k) {
+      if (s >= w.richtwert) add("gym", 4, `Dein Notenschnitt (${s.toFixed(2)}) erreicht den Richtwert im Kanton ${k.name} (${w.richtwert.toFixed(2)}).`);
+      else if (s < w.richtwert - 0.2) add("gym", -4, `Dein Notenschnitt (${s.toFixed(2)}) liegt unter dem Richtwert im Kanton ${k.name} (etwa ${w.richtwert.toFixed(2)}).`);
+    }
+    if (p.schulgefuehl === "freude") add("gym", 3, PRO_EXTRA.freude);
+    if (p.schulgefuehl === "muede") { add("gym", -3, PRO_EXTRA.muede); add("lehre", 2, PRO_EXTRA.muede); }
+    if (p.druck === "gut") add("gym", 2, PRO_EXTRA.druckGut);
+    if (p.druck === "schwer") add("gym", -2, PRO_EXTRA.druckSchwer);
+    if (p.mit20 === "studium") add("gym", 4, PRO_EXTRA.mitStudium);
+    if (p.mit20 === "fh") add("lehre", 3, PRO_EXTRA.mitFh);
+    if (p.mit20 === "beruf") { add("lehre", 4, PRO_EXTRA.mitBeruf); add("gym", -3, PRO_EXTRA.mitBeruf); }
+    const kopf = (p.praef || {}).kopf;
+    if (kopf >= 1) add("gym", kopf, PRO_EXTRA.kopf);
+    if (kopf <= -1) add("lehre", -kopf, PRO_EXTRA.hand);
+    const top = (arr) => arr.sort((m, n) => n.st - m.st).slice(0, 4).map((m) => m.txt);
+    ["gym", "lehre"].forEach((g) => { pro[g] = top(pro[g]); contra[g] = top(contra[g]); });
+
+    // Denkanstösse: Spannungen und Widersprüche in den Antworten
+    const d = [];
+    const hoch = (id) => a[id] >= 4, tief = (id) => a[id] && a[id] <= 2;
+    const motiv = p.motiv || [];
+    const gymWeg = w.empfehlung === "gym";
+    if (hoch("w2") && (tief("w10") || tief("w6"))) d.push({ w: true, t: "Du willst studieren, lernst aber nicht so gern selbständig. Im Gymnasium ist genau das der Schlüssel. Was würde dir helfen, dranzubleiben?" });
+    if (hoch("w4") && hoch("w11")) d.push({ w: true, t: "Du möchtest bald Geld verdienen, dein Traumberuf braucht aber ein Studium. Über Lehre, Berufsmatur und Fachhochschule erreichst du viele Studienberufe – und verdienst unterwegs schon Geld. Kläre, ob das auch für deinen Traumberuf geht." });
+    if (hoch("w11") && !gymWeg) d.push({ t: "Dein Traumberuf braucht ein Studium. Auch ohne Gymnasium gibt es Wege dorthin: Lehre mit Berufsmatur → Fachhochschule, oder via Passerelle an die Uni. Finde heraus, welcher Weg zu deinem Traumberuf führt." });
+    if (hoch("w5") && gymWeg) d.push({ t: "Du hast schon ein Berufsfeld, das dich reizt. Prüfe, ob es dafür eine Lehre gibt – und ob du dein Ziel wirklich nur übers Gymnasium erreichst." });
+    if (typId === "gymWunsch") d.push({ t: "Dein Wunsch nach Schule ist gross. Frag nach: Wie funktioniert die Aufnahmeprüfung? Lohnt sich ein Vorbereitungskurs? Und was ist dein Plan B, falls es nicht klappt?" });
+    if (typId === "praxisPotenzial") d.push({ t: "Mit deinen Noten kannst du hoch hinaus – auch in der Lehre. Schau dir anspruchsvolle Berufe an und frag beim Schnuppern nach der Berufsmatur." });
+    if (hoch("w1") && hoch("w3")) d.push({ t: "Du willst Theorie verstehen und gleichzeitig praktisch arbeiten. Die Lehre mit Berufsmatur verbindet genau das." });
+    if (hoch("w8") && w.empfehlung === "lehre") d.push({ t: "Du willst dir viele Wege offenhalten. Mit der Berufsmatur – während oder nach der Lehre – stehen dir Fachhochschule und Uni offen." });
+    if (tief("w7") && gymWeg) d.push({ t: "Fremdsprachen sind nicht deine Lieblingsfächer. Im Gymnasium hast du bis zur Matura eine zweite Landessprache und Englisch. Bist du bereit, dranzubleiben?" });
+    const fremd = window.NM_MOTIVE.filter((m) => m.fremd && motiv.includes(m.id));
+    const eigen = window.NM_MOTIVE.some((m) => m.eigen && motiv.includes(m.id));
+    if (fremd.length && !eigen) {
+      const gr = fremd.map((m) => m.fremd);
+      d.push({ w: true, t: `Du denkst ans Gymnasium vor allem, weil ${gr.length > 1 ? gr.slice(0, -1).join(", ") + " und " + gr[gr.length - 1] : gr[0]}. Das sind verständliche Gründe – aber überleg dir auch: Was willst du selbst in vier Jahren machen?` });
+    }
+    if (motiv.includes("aufschieben")) d.push({ t: "Du weisst noch nicht, was du werden willst – das ist mit 14 oder 15 völlig normal. Das Gymnasium kann dir Zeit geben, aber auch eine Lehre ist kein Entscheid fürs ganze Leben. Schnuppern hilft am meisten, klarer zu sehen." });
+    if (p.druck === "schwer" && gymWeg) d.push({ t: "Prüfungsdruck setzt dir zu, und im Gymnasium gibt es viele Prüfungen. Überleg, was dir hilft, damit umzugehen – und sprich mit deiner Lehrperson darüber." });
+    if (p.schulgefuehl === "muede" && wunsch === "schule") d.push({ w: true, t: "Deine Antworten zeigen Richtung Schule, aber vier weitere Jahre fühlen sich anstrengend an. Was davon stimmt für dich mehr?" });
+    if (p.schulgefuehl === "freude" && wunsch === "praxis") d.push({ w: true, t: "Du freust dich eigentlich auf weitere Schuljahre, deine übrigen Antworten zeigen aber Richtung Praxis. Vielleicht ist die Lehre mit Berufsmatur ein guter Mittelweg?" });
+    if ((p.mit20 === "beruf" && gymWeg) || (p.mit20 === "studium" && wunsch === "praxis")) {
+      d.push({ w: true, t: `Mit 20 siehst du dich ${p.mit20 === "beruf" ? "im Beruf mit eigenem Lohn" : "an der Uni"} – das passt nicht ganz zu deinen übrigen Antworten. Welches Bild fühlt sich richtiger an?` });
+    }
+    if (p.eltern === "gym" && !gymWeg) d.push({ t: "Deine Eltern wünschen sich eher das Gymnasium, deine Antworten zeigen eher Richtung Lehre. Redet darüber, was euch jeweils wichtig ist." });
+    if (p.eltern === "lehre" && gymWeg) d.push({ t: "Deine Eltern wünschen sich eher eine Lehre, deine Antworten zeigen Richtung Gymnasium. Redet darüber, was euch jeweils wichtig ist." });
+
+    // Wie eindeutig ist das Ergebnis?
+    const beantwortet = window.NM_WEGFRAGEN.filter((q) => a[q.id]).length;
+    const abstand = Math.abs(w.schulePct - 50);
+    let stufe = abstand >= 20 ? 3 : abstand >= 8 ? 2 : 1;
+    const widersprueche = d.filter((z) => z.w).length;
+    if (widersprueche >= 2) stufe = Math.max(1, stufe - 1);
+    const klarheit = beantwortet < window.NM_WEGFRAGEN.length
+      ? { stufe: 0, label: "Noch unvollständig", text: "Du hast noch nicht alle Fragen beantwortet. Mit allen Antworten wird das Bild genauer." }
+      : [null,
+        { stufe: 1, label: "Knapp", text: "Deine Antworten sind ziemlich ausgeglichen. Hier lohnt sich ein Gespräch mit Eltern und Berufsberatung besonders – und Schnuppern in beiden Welten." },
+        { stufe: 2, label: "Deutliche Tendenz", text: "Deine Antworten zeigen in eine Richtung, aber nicht ganz eindeutig. Prüfe die Denkanstösse unten." },
+        { stufe: 3, label: "Klares Bild", text: "Deine Antworten zeigen klar in eine Richtung." + (widersprueche ? " Ein paar Punkte lohnt es sich trotzdem zu überdenken." : "") }
+      ][stufe];
+
+    return {
+      typ, klarheit, pro, contra,
+      denkanstoesse: d.slice(0, 5).map((z) => z.t),
+      ergaenzt: !!p.mit20
+    };
+  }
+
   // Fortschritt: welche Schritte sind erledigt?
   function vollstaendigkeit(p) {
     const d = p.done || {};
@@ -240,5 +374,5 @@
     return { pct: Math.round((erledigt / alle.length) * 100), erledigt, total: alle.length, kern: ["ueber", "schule", "interessen", "weg"].every((x) => d[x]) };
   }
 
-  window.NM_ENGINE = { interessen, topInteressen, notenschnitt, level, match, rangliste, topFelder, weg, vollstaendigkeit, kanton };
+  window.NM_ENGINE = { interessen, topInteressen, notenschnitt, level, match, rangliste, topFelder, weg, gedanken, vollstaendigkeit, kanton };
 })();
