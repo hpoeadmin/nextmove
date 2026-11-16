@@ -64,14 +64,15 @@ Weg-Empfehlung und die Top 3 Berufe. Kompass, Kantonsinfos, Interessen, Berufsfe
 nächste Schritte und Gesprächsfragen sind verschwommen. Drucken/PDF, Favoriten, Export/Import und Match-%
 im Berufe-Explorer sind gesperrt, und es gibt nur 1 Profil pro Gerät.
 
-Mit einem **Lizenzcode** ist alles freigeschaltet. Stufen: Eltern (bis 3 Profile, 12 Monate ab Ausstellung),
-Klasse und Schule (unbegrenzt viele Profile, bis 31. Juli). Jede Lizenz hat ein Ablaufdatum (höchstens 2 Jahre). Die Codes sind signiert (ECDSA P-256) und
+Mit einem **Lizenzcode** ist alles freigeschaltet. Stufen: Eltern (bis 3 Profile), Klasse und Schule (unbegrenzt viele Profile).
+**Jede Lizenz gilt für ein Schuljahr bis 31. Juli.** Stichtag 1. April: Wird sie von August bis März ausgestellt,
+gilt sie bis Ende des laufenden Schuljahrs, ab April bis Ende des nächsten. Das Werkzeug setzt das Datum automatisch. Die Codes sind signiert (ECDSA P-256) und
 werden offline im Browser geprüft. Es gibt keinen Server, und es werden keine Daten übermittelt.
 
 ```
 node tools/lizenz.mjs neu --stufe schule --name "Schule Musterdorf" --url https://deine-adresse.ch/
 node tools/lizenz.mjs neu --stufe eltern --name "Familie Muster"
-node tools/lizenz.mjs neu --stufe klasse --name "Sek Musterdorf, Klasse 2b" --bis 2027-07-31
+node tools/lizenz.mjs neu --stufe klasse --name "Sek Musterdorf, Klasse 2b"
 node tools/lizenz.mjs pruefen NM1-…
 node tools/lizenz.mjs liste
 ```

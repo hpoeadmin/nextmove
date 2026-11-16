@@ -6,10 +6,10 @@
 //       (NIE ins Projekt, NIE weitergeben, aber sichern!). Der öffentliche Schlüssel
 //       wird in js/lizenz.js eingesetzt.
 //
-//   node tools/lizenz.mjs neu --stufe schule --name "Schule Musterdorf" [--bis 2027-07-31] [--url https://…]
+//   node tools/lizenz.mjs neu --stufe schule --name "Schule Musterdorf" [--url https://…]
 //       Lizenzcode erzeugen. Stufen: eltern | klasse | schule.
-//       Ohne --bis: Eltern 12 Monate ab heute, Klasse/Schule bis Ende Schuljahr (31. Juli).
-//       Jede Lizenz hat ein Ablaufdatum (höchstens 2 Jahre).
+//       Jede Lizenz gilt bis Ende Schuljahr (31. Juli). Stichtag 1. April: ausgestellt
+//       August–März → bis 31. Juli des laufenden Schuljahrs, April–Juli → bis 31. Juli des nächsten.
 //       --url merkt sich die Adresse der App und gibt zusätzlich einen Freischalt-Link aus.
 //
 //   node tools/lizenz.mjs pruefen NM1-…      Code prüfen und anzeigen
@@ -50,15 +50,12 @@ function privatSchluessel() {
   return JSON.parse(fs.readFileSync(PRIV, "utf8"));
 }
 function oeffentlich(jwk) { const { kty, crv, x, y } = jwk; return { kty, crv, x, y }; }
-function endeSchuljahr() {
-  const d = new Date();
-  const jahr = d.getMonth() > 6 ? d.getFullYear() + 1 : d.getFullYear(); // ab August: nächstes Jahr
+// Jede Lizenz gilt bis 31. Juli (Ende Schuljahr). Stichtag 1. April:
+// ausgestellt August bis März → bis Ende des laufenden Schuljahrs,
+// ausgestellt April bis Juli → bis Ende des nächsten Schuljahrs.
+function ablauf(d = new Date()) {
+  const jahr = d.getMonth() <= 2 ? d.getFullYear() : d.getFullYear() + 1; // Januar–März: dieses Jahr
   return `${jahr}-07-31`;
-}
-function inEinemJahr() {
-  const d = new Date();
-  d.setFullYear(d.getFullYear() + 1);
-  return d.toISOString().slice(0, 10);
 }
 function csv(v) { return /[",\n]/.test(v) ? `"${String(v).replace(/"/g, '""')}"` : String(v); }
 
@@ -89,11 +86,8 @@ async function neu(o) {
   if (!s) stop("--stufe eltern | klasse | schule angeben.");
   const name = typeof o.name === "string" ? o.name.trim() : "";
   if (!name) stop('--name angeben, z. B. --name "Schule Musterdorf" oder --name "Familie Muster".');
-  const bis = typeof o.bis === "string" ? o.bis : s === "E" ? inEinemJahr() : endeSchuljahr();
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(bis)) stop("--bis im Format JJJJ-MM-TT angeben, z. B. 2027-07-31.");
-  const max = new Date(); max.setFullYear(max.getFullYear() + 2);
-  if (bis > max.toISOString().slice(0, 10)) stop("Eine Lizenz gilt höchstens 2 Jahre. Bitte ein früheres --bis wählen.");
-  if (bis < new Date().toISOString().slice(0, 10)) stop("--bis liegt in der Vergangenheit.");
+  if (o.bis !== undefined) stop("Das Ablaufdatum wird automatisch gesetzt (31. Juli, Stichtag 1. April). --bis gibt es nicht mehr.");
+  const bis = ablauf();
 
   const conf = config();
   if (typeof o.url === "string") { conf.url = o.url.replace(/[#?].*$/, ""); fs.writeFileSync(CONF, JSON.stringify(conf, null, 2)); }
